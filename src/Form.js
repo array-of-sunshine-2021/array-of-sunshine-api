@@ -1,10 +1,10 @@
 // Form.js
 
-const Form = () => {
+const Form = ({submit, dateChange, dateInput }) => {
     return (
         <form action="">
             <label htmlFor="dateInput">What day will you go for a run?</label>
-            <input type="date" id="dateInput" className="dateInput" />
+            <input type="date" id="dateInput" className="dateInput" value={dateInput} onChange={dateChange} />
 
             <label htmlFor="timeZonesInput">Pick your timezone:</label>
             <select name="timeZonesInput" id="timeZonesInput" className="timeZoneInput">
@@ -34,7 +34,7 @@ const Form = () => {
                 </div>
             </div>
 
-            <button type="submit">Let's Workout!</button>
+            <button type="submit" onClick={submit}>Let's Workout!</button>
 
 
         </form>
