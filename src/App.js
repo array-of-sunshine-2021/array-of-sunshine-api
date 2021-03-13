@@ -21,11 +21,11 @@ function App() {
       params: {
         lat: 36.7201600,
         lng: -4.4203400,
-        date: {dateInput}
+        date: `${dateInput}`
       }
     }).then(response => {
       response = response.data.results
-      // console.log(response);
+      console.log('response:',response);
     })
   }
 
