@@ -5,13 +5,27 @@ import Form from "./Form";
 
 function App() {
   //define state for the form inputs
-  const [dateInput, setDateInput] = useState("");
-
+  const [dateInput, setDateInput] = useState('');
+  const [timeZone, setTimeZone] = useState('');
+  const [sunrise , setSunrise] = useState('');
+  
   //create functions to handle input changes from the form
   const handleDateInput = (event) => {
     const date = event.target.value;
     setDateInput(date);
   };
+
+  const handleTimeZone = (event) => {
+    const timeZoneSelected = event.target.value
+    setTimeZone(timeZoneSelected)
+
+    //hard coded timezone cities for lat and long 
+    //might need array of objects
+  }
+
+  const handleRadioChoice = (event) => {
+    const radioChoice = event.target.value
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,14 +43,17 @@ function App() {
     });
   };
 
+
   return (
     <div className="App">
       <h1>SUN RUN</h1>
       <h2>hello, testing</h2>
       <Form
-        submit={handleSubmit}
-        date={dateInput}
-        dateChange={handleDateInput}
+      submit={handleSubmit}
+      date= {dateInput}
+      dateChange={handleDateInput}
+      timeZone = {handleTimeZone}
+      sunRun = {handleRadioChoice}
       />
     </div>
   );
