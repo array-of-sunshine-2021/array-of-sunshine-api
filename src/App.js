@@ -7,10 +7,9 @@ function App() {
   //define state for the form inputs
   const [dateInput, setDateInput] = useState('');
 
-  //create functions to handle input changes from the form
+  // create functions to handle input changes from the form
   const handleDateInput = (event) => {
     setDateInput(event.target.value);
-    console.log(event);
   }
 
   const handleSubmit = (event) => {
@@ -25,7 +24,7 @@ function App() {
       }
     }).then(response => {
       response = response.data.results
-      // console.log(response);
+      console.log(response);
     })
   }
 
@@ -34,7 +33,7 @@ function App() {
     <div className="App">
       <Form
       submit={handleSubmit}
-      dateInput= {dateInput}
+      date= {dateInput}
       dateChange={handleDateInput}
       />
       
