@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import Form from './Form'
@@ -6,11 +6,12 @@ import Form from './Form'
 function App() {
   //define state for the form inputs
   const [dateInput, setDateInput] = useState('');
-
+  
   //create functions to handle input changes from the form
   const handleDateInput = (event) => {
+    console.log(event)
     setDateInput(event.target.value);
-    console.log(event);
+    
   }
 
   const handleSubmit = (event) => {
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>SUN RUN</h1>
       <Form
       submit={handleSubmit}
       dateInput= {dateInput}
