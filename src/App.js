@@ -9,9 +9,8 @@ function App() {
   
   //create functions to handle input changes from the form
   const handleDateInput = (event) => {
-    console.log(event)
-    setDateInput(event.target.value);
-    
+    const date = event.target.value 
+    setDateInput(date)
   }
 
   const handleSubmit = (event) => {
@@ -22,17 +21,19 @@ function App() {
       params: {
         lat: 36.7201600,
         lng: -4.4203400,
-        date:`${dateInput}`
+        date: `${dateInput}`
       }
     }).then(response => {
       response = response.data.results
-      // console.log(response);
+      console.log(response);
     })
   }
 
 
   return (
     <div className="App">
+      <h1>SUN RUN</h1>
+      <h2>hello testing</h2>
       <Form
       submit={handleSubmit}
       dateInput= {dateInput}
