@@ -6,7 +6,7 @@ import Form from './Form'
 function App() {
   //define state for the form inputs
   const [dateInput, setDateInput] = useState('');
-
+  
   //create functions to handle input changes from the form
   const handleDateInput = (event) => {
     const date = event.target.value 
