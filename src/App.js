@@ -29,7 +29,7 @@ function App() {
     })
   }
 
-gi
+
   return (
     <div className="App">
       <h1>SUN RUN</h1>
