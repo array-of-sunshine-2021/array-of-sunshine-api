@@ -33,6 +33,7 @@ function App() {
   return (
     <div className="App">
       <h1>SUN RUN</h1>
+      <h2>hello, testing</h2>
       <Form
       submit={handleSubmit}
       date= {dateInput}
