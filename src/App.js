@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import Form from './Form'
