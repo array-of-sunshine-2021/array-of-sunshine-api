@@ -1,0 +1,47 @@
+// App.scss
+
+@import 'setup';
+
+
+// GENERAL STYLES
+
+body{
+    background-color: $yellow-color;
+    font-family: $base-font;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $red-color;
+}
+
+button{
+    border: none;
+    border-radius: 5px;
+    background-color: $green-color;
+    padding: .5rem 2rem;
+    margin-top: 2rem;
+}
+
+.wrapper{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+// FORM STYLES
+
+form{
+    text-align: center;
+    padding-top: 5rem;
+    p{
+        margin-bottom: 0;
+    }
+    label{
+        margin:1rem;
+    }
+}
+
+
+.runDuration{
+    margin: 2rem;
+    display: none;
+}

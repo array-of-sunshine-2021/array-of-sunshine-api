@@ -2,7 +2,7 @@
 
 const Form = (props) => {
     return (
-        <form action="">
+        <form action="" className="wrapper">
             <label htmlFor="dateInput">What day will you go for a run?</label>
             <input type="date" id="dateInput" className="dateInput" value={props.dateInput} onChange={props.dateChange} />
 
