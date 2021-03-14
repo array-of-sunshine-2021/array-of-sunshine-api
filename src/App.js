@@ -3,11 +3,34 @@ import axios from "axios";
 import { useState } from "react";
 import Form from "./Form";
 
+
 function App() {
   //define state for the form inputs
   const [dateInput, setDateInput] = useState('');
   const [timeZone, setTimeZone] = useState('');
   const [sunrise , setSunrise] = useState('');
+
+//hard coded timezone cities for lat and long 
+//in an array of objects
+  const timeZoneCoordinates = [
+    eastern = {
+        lat: 43.6532,
+        lng: 79.3832
+      },
+    central = {
+        lat:29.7604,
+        lng:95.3698,
+      },
+    pacific = {
+      lat:37.7749,
+      lng:122.4194,
+    },
+    mountain = {
+      lat:33.4484,
+      lng:112.0740,
+    }
+  ]
+
   
   //create functions to handle input changes from the form
   const handleDateInput = (event) => {
@@ -19,9 +42,17 @@ function App() {
     const timeZoneSelected = event.target.value
     setTimeZone(timeZoneSelected)
 
-    //hard coded timezone cities for lat and long 
-    //might need array of objects
+    // const [eastern, central, pacific, mountain] = timeZoneCoordinates
+
+    const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
+      console.log(timeZoneCoordinate)
+      return(
+        timeZoneSelected === timeZoneCoordinate 
+      )
+    })
+    console.log(timeZoneUserChoice)
   }
+
 
   const handleRadioChoice = (event) => {
     const radioChoice = event.target.value
