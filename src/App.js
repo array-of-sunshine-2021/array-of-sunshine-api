@@ -16,22 +16,26 @@ function App() {
     {
         timezone: 'eastern',
         lat: 43.6532,
-        lng: 79.3832
+        lng: 79.3832,
+        timezone: 'eastern',
       },
     {
         timezone: 'central',
         lat:29.7604,
         lng:95.3698,
+        timezone: 'central',
       },
     {
       timezone: 'pacific',
       lat:37.7749,
       lng:122.4194,
+      timezone: 'pacific',
     },
     {
       timezone: 'mountain',
       lat:33.4484,
       lng:112.0740,
+      timezone: 'mountain',
     }
   ]
 
@@ -61,7 +65,8 @@ function App() {
 
 
   const handleRadioChoice = (event) => {
-    const radioChoice = event.target.value
+    const radioChoice = event.target.value;
+    setSunrise(radioChoice)
   }
 
   const handleSubmit = (event) => {

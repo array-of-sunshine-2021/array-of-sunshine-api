@@ -1,6 +1,18 @@
 // Form.js
+import { useState } from 'react';
+
 
 const Form = (props) => {
+    const [sunSet, setSunSet] = useState('false');
+    
+    const handleToggle = () => {
+        setSunSet(!sunSet)
+    }
+
+    const handleToggleSunrise = () => {
+        setSunSet('false')
+    }
+
     return (
         <form action="" className="wrapper">
             <label htmlFor="dateInput">What day will you go for a run?</label>
@@ -17,12 +29,12 @@ const Form = (props) => {
             <div className="sunState">
                 <p>When will you go for a run?</p>
                 <label htmlFor="sunInput">After Sunrise</label>
-                <input type="radio" name="sunInput" className="sunInput" value ="sunrise" onChange = {props.sunRun}/>
+                <input type="radio" name="sunInput" className="sunInput" value ="sunrise" onChange = {props.sunRun} onClick = {handleToggleSunrise}/>
 
                 <label htmlFor="sunInput">Before Sunset</label>
-                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange = {props.sunRun}/>
+                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange = {props.sunRun} onClick = {handleToggle}/>
 
-                <div className="runDuration">
+                <div className={`${sunSet ? "runDuration" : "runDurationVisible"}`}>
                     <label htmlFor="runLength">How long is your run?</label>
                     <select name="runLength" id="runLength">
                         <option value="">15 min</option>
