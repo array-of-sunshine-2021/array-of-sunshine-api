@@ -12,22 +12,26 @@ function App() {
 
 //hard coded timezone cities for lat and long 
 //in an array of objects
-  const timeZoneCoordinates = [
-    eastern = {
+  const timeZoneCoordinate = [
+    {
         lat: 43.6532,
-        lng: 79.3832
+        lng: 79.3832,
+        timezone: 'eastern',
       },
-    central = {
+  {
         lat:29.7604,
         lng:95.3698,
+        timezone: 'central',
       },
-    pacific = {
+   {
       lat:37.7749,
       lng:122.4194,
+      timezone: 'pacific',
     },
-    mountain = {
+    {
       lat:33.4484,
       lng:112.0740,
+      timezone: 'mountain',
     }
   ]
 
@@ -44,10 +48,10 @@ function App() {
 
     // const [eastern, central, pacific, mountain] = timeZoneCoordinates
 
-    const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
+    const timeZoneUserChoice = timeZoneCoordinate.filter((timeZoneCoordinate) => {
       console.log(timeZoneCoordinate)
       return(
-        timeZoneSelected === timeZoneCoordinate 
+        timeZoneSelected === timeZoneCoordinate.timezone
       )
     })
     console.log(timeZoneUserChoice)
@@ -55,7 +59,8 @@ function App() {
 
 
   const handleRadioChoice = (event) => {
-    const radioChoice = event.target.value
+    const radioChoice = event.target.value;
+    setSunrise(radioChoice)
   }
 
   const handleSubmit = (event) => {
