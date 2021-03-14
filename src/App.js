@@ -2,6 +2,7 @@ import "./styles/App.scss";
 import axios from "axios";
 import { useState } from "react";
 import Form from "./Form";
+import Results from "./Results.js"
 
 
 function App() {
@@ -10,6 +11,9 @@ function App() {
   const [sunrise , setSunrise] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [duration , setDuration] = useState('');
+  const [result , setResult] = useState([]);
+  const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('')
 
 
   const timeZoneCoordinates = [
@@ -47,7 +51,8 @@ function App() {
 
   const handleTimeZone = (event) => {
     const timeZoneSelected = event.target.value
-    
+
+    setUserChoiceTimeZone(timeZoneSelected)
 
     const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
       // console.log(timeZoneCoordinate)
@@ -55,10 +60,8 @@ function App() {
         timeZoneSelected === timeZoneCoordinate.timezone
       )
     })
-    console.log(timeZoneUserChoice)
     const latitude = timeZoneUserChoice[0].lat
     const longitude= timeZoneUserChoice[0].lng
-    console.log(latitude, longitude)
     setLatitude(latitude)
     setLongitude(longitude)
   }
@@ -68,6 +71,12 @@ function App() {
     const radioChoice = event.target.value;
     setSunrise(radioChoice)
   }
+
+  const handleDuration = (event) => {
+    const durationChoice = event.target.value;
+    setDuration(durationChoice)
+  }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -81,10 +90,11 @@ function App() {
       },
     }).then((response) => {
       response = response.data.results;
-      console.log(response);
+      // const apiSunrise = response.sunrise;
+      // const apiSunset = response.sunset;
+      setResult(response)
     });
   };
-
 
   return (
     <div className="App">
@@ -96,8 +106,15 @@ function App() {
       dateChange={handleDateInput}
       timeZone = {handleTimeZone}
       sunRun = {handleRadioChoice}
+      duration = {handleDuration}
+      />
+      <Results
+       apiResult = {result}
+       userDuration = {duration}
+       timeZone = {userChoiceTimeZone}
       />
     </div>
+
   );
 }
 

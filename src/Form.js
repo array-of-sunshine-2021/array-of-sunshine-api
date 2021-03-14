@@ -36,11 +36,11 @@ const Form = (props) => {
 
                 <div className={`${sunSet ? "runDuration" : "runDurationVisible"}`}>
                     <label htmlFor="runLength">How long is your run?</label>
-                    <select name="runLength" id="runLength">
-                        <option value="">15 min</option>
-                        <option value="">30 min</option>
-                        <option value="">60 min</option>
-                        <option value="">90 min</option>
+                    <select onChange = {props.duration}name="runLength" id="runLength">
+                        <option value="15">15 min</option>
+                        <option value="30">30 min</option>
+                        <option value="60">60 min</option>
+                        <option value="90">90 min</option>
                     </select>
                 </div>
             </div>
