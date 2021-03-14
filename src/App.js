@@ -10,28 +10,27 @@ function App() {
   const [timeZone, setTimeZone] = useState('');
   const [sunrise , setSunrise] = useState('');
 
-//hard coded timezone cities for lat and long 
-//in an array of objects
   const timeZoneCoordinates = [
-    eastern = {
+    {
+      timezone : 'eastern',
         lat: 43.6532,
         lng: 79.3832
-      },
-    central = {
+    },
+    {
+      timezone : 'central',
         lat:29.7604,
         lng:95.3698,
-      },
-    pacific = {
+    },
+    { timezone: 'pacific',
       lat:37.7749,
       lng:122.4194,
     },
-    mountain = {
+    { timezone: 'mountain', 
       lat:33.4484,
       lng:112.0740,
     }
   ]
 
-  
   //create functions to handle input changes from the form
   const handleDateInput = (event) => {
     const date = event.target.value;
@@ -40,9 +39,8 @@ function App() {
 
   const handleTimeZone = (event) => {
     const timeZoneSelected = event.target.value
-    setTimeZone(timeZoneSelected)
-
-    // const [eastern, central, pacific, mountain] = timeZoneCoordinates
+    // setTimeZone(timeZoneSelected)
+    console.log(timeZoneSelected)
 
     const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
       console.log(timeZoneCoordinate)
