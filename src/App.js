@@ -7,25 +7,31 @@ import Form from "./Form";
 function App() {
   //define state for the form inputs
   const [dateInput, setDateInput] = useState('');
-  const [timeZone, setTimeZone] = useState('');
   const [sunrise , setSunrise] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
 
 //hard coded timezone cities for lat and long 
 //in an array of objects
   const timeZoneCoordinates = [
-    eastern = {
+    {
+        timezone: 'eastern',
         lat: 43.6532,
         lng: 79.3832
       },
-    central = {
+    {
+        timezone: 'central',
         lat:29.7604,
         lng:95.3698,
       },
-    pacific = {
+    {
+      timezone: 'pacific',
       lat:37.7749,
       lng:122.4194,
     },
-    mountain = {
+    {
+      timezone: 'mountain',
       lat:33.4484,
       lng:112.0740,
     }
@@ -40,17 +46,20 @@ function App() {
 
   const handleTimeZone = (event) => {
     const timeZoneSelected = event.target.value
-    setTimeZone(timeZoneSelected)
-
-    // const [eastern, central, pacific, mountain] = timeZoneCoordinates
+    
 
     const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
-      console.log(timeZoneCoordinate)
+      // console.log(timeZoneCoordinate)
       return(
-        timeZoneSelected === timeZoneCoordinate 
+        timeZoneSelected === timeZoneCoordinate.timezone
       )
     })
     console.log(timeZoneUserChoice)
+    const latitude = timeZoneUserChoice[0].lat
+    const longitude= timeZoneUserChoice[0].lng
+    console.log(latitude, longitude)
+    setLatitude(latitude)
+    setLongitude(longitude)
   }
 
 
@@ -64,8 +73,8 @@ function App() {
       method: "GET",
       url: "https://api.sunrise-sunset.org/json",
       params: {
-        lat: 36.72016,
-        lng: -4.42034,
+        lat: `${latitude}`,
+        lng: `${longitude}`,
         date: `${dateInput}`,
       },
     }).then((response) => {
