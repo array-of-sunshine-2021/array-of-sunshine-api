@@ -62,8 +62,6 @@ function App() {
 
   const handleRadioChoice = (event) => {
     const radioChoice = event.target.value
-
-    
   }
 
   const handleSubmit = (event) => {
