@@ -7,25 +7,29 @@ import Form from "./Form";
 function App() {
   //define state for the form inputs
   const [dateInput, setDateInput] = useState('');
-  const [timeZone, setTimeZone] = useState('');
   const [sunrise , setSunrise] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
 
   const timeZoneCoordinates = [
     {
-      timezone : 'eastern',
+        timezone: 'eastern',
         lat: 43.6532,
         lng: 79.3832
-    },
+      },
     {
-      timezone : 'central',
+        timezone: 'central',
         lat:29.7604,
         lng:95.3698,
-    },
-    { timezone: 'pacific',
+      },
+    {
+      timezone: 'pacific',
       lat:37.7749,
       lng:122.4194,
     },
-    { timezone: 'mountain', 
+    {
+      timezone: 'mountain',
       lat:33.4484,
       lng:112.0740,
     }
@@ -39,21 +43,27 @@ function App() {
 
   const handleTimeZone = (event) => {
     const timeZoneSelected = event.target.value
-    // setTimeZone(timeZoneSelected)
-    console.log(timeZoneSelected)
+    
 
     const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
-      console.log(timeZoneCoordinate)
+      // console.log(timeZoneCoordinate)
       return(
-        timeZoneSelected === timeZoneCoordinate 
+        timeZoneSelected === timeZoneCoordinate.timezone
       )
     })
     console.log(timeZoneUserChoice)
+    const latitude = timeZoneUserChoice[0].lat
+    const longitude= timeZoneUserChoice[0].lng
+    console.log(latitude, longitude)
+    setLatitude(latitude)
+    setLongitude(longitude)
   }
 
 
   const handleRadioChoice = (event) => {
     const radioChoice = event.target.value
+
+    
   }
 
   const handleSubmit = (event) => {
@@ -62,8 +72,8 @@ function App() {
       method: "GET",
       url: "https://api.sunrise-sunset.org/json",
       params: {
-        lat: 36.72016,
-        lng: -4.42034,
+        lat: `${latitude}`,
+        lng: `${longitude}`,
         date: `${dateInput}`,
       },
     }).then((response) => {
