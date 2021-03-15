@@ -1,46 +1,79 @@
 // App.scss
 
-@import 'setup';
-
+@import "setup";
+// @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap");
+/* font-family: 'Kumbh Sans', sans-serif; */
 
 // GENERAL STYLES
 
-body{
-    background-color: $yellow-color;
-    font-family: $base-font;
-    font-weight: 400;
-    font-size: 1.6rem;
-    color: $red-color;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-button{
-    border: none;
-    border-radius: 5px;
-    background-color: $green-color;
-    padding: .5rem 2rem;
-    margin-top: 2rem;
+body {
+  font-family: $base-font;
+  font-weight: 400;
+  font-size: 1.6rem;
+  background-color: $green-color;
+  //   background-color: $primary-color;
 }
 
-.wrapper{
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  //   color: #fff;
+  //   background-color: $green-color;
+  background-color: $primary-color;
+  color: $yellow-color;
+  height: 10vh;
+  border-bottom: 2px solid #eeeeee;
+  h1 {
+    padding-top: 34px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.7rem;
+    margin-right: 2rem;
+  }
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: $btn-color;
+  padding: 0.7rem 1.5rem;
+  margin-top: 2rem;
+  color: #ffffff;
 }
 
 // FORM STYLES
 
-form{
-    text-align: center;
-    padding-top: 5rem;
-    p{
-        margin-bottom: 0;
-    }
-    label{
-        margin:1rem;
-    }
+form {
+  padding-top: 5rem;
+  p {
+    margin-bottom: 0;
+  }
+  label {
+    color: #333;
+    font-weight: 700;
+  }
+
+  .dateInput {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    color: #817c7c;
+  }
+
+  input {
+    display: block;
+  }
 }
 
-.runDuration{
-    margin: 2rem;
-    display: none;
+.runDuration {
+  margin: 2rem;
+  display: none;
 }
