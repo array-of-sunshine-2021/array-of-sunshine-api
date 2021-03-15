@@ -19,7 +19,7 @@ const Form = (props) => {
             <input type="date" id="dateInput" className="dateInput" value={props.dateInput} onChange={props.dateChange} />
 
             <label htmlFor="timeZonesInput">Pick your timezone:</label>
-            <select name="timeZonesInput" id="timeZonesInput" className="timeZoneInput" onChange ={props.timeZone}>
+            <select name="timeZonesInput" id="timeZonesInput" className="timeZoneInput" onChange ={props.timeZone} >
                 <option value="eastern">Eastern</option>
                 <option value="central">Central</option>
                 <option value="pacific">Pacific</option>
@@ -32,7 +32,7 @@ const Form = (props) => {
                 <input type="radio" name="sunInput" className="sunInput" value ="sunrise" onChange = {props.sunRun} onClick = {handleToggleSunrise}/>
 
                 <label htmlFor="sunInput">Before Sunset</label>
-                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange = {props.sunRun} onClick = {handleToggle}/>
+                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange = {props.sunRun} />
 
                 <div className={`${sunSet ? "runDuration" : "runDurationVisible"}`}>
                     <label htmlFor="runLength">How long is your run?</label>

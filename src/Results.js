@@ -1,44 +1,67 @@
-//Results.js
+import {useEffect} from 'react'
 
 const Results = ({ apiResult, userDuration, timeZone }) => {
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
   console.log(apiResult);
-  if (timeZone === "eastern") {
-       //     console.log(typeof sunrise);
-       const sunriseSubstrEst = sunriseApi.substr(2);
-console.log(sunriseSubstrEst)
-//     const covertedESTRise = parseInt(sunrise) - 4;
-//     const covertedESTSet = parseInt(sunset) - 4;
 
-//     const sunriseSubstrEst = sunrise.subs?t(2);
-     //    console.log(typeof(covertedESTRise));
+useEffect(() => {
+    if (timeZone === "eastern") {
+
+      const convertedESTRise = parseInt(sunriseApi) - 4;
+      const convertedESTSet = parseInt(sunsetApi) - 4;
+
+      const sunriseSubstrEst = sunriseApi.substring(2);
+      const sunsetSubstrEst = sunsetApi.substring(2);
+
+      const finalRiseEST = convertedESTRise + sunriseSubstrEst;
+      const finalSetEST = convertedESTSet + sunsetSubstrEst;
+
+      console.log (finalRiseEST, finalSetEST);
+
+      
+
   } else if (timeZone === "central") {
-    const covertedCTRise = parseInt(sunriseApi) - 5;
-    const covertedCTSet = parseInt(sunsetApi) - 5;
-    //     console.log(covertedCT);
+    const convertedCTRise = parseInt(sunriseApi) - 5;
+    const convertedCTSet = parseInt(sunsetApi) - 5;
+
+    const sunriseSubstrCT = sunriseApi.substring(2);
+    const sunsetSubstrCT = sunsetApi.substring(2);
+
+    const finalRiseCT = convertedCTRise + sunriseSubstrCT;
+    const finalSetCT = convertedCTSet + sunsetSubstrCT;
+
+    console.log (finalRiseCT, finalSetCT)
+
   } else if (timeZone === "mountain") {
-    const covertedMTRise = parseInt(sunriseApi) - 7;
-    const covertedMTSet = parseInt(sunsetApi) - 7;
-    //     console.log(covertedMT);
+    const convertedMTRise = parseInt(sunriseApi) - 7;
+    const convertedMTSet = parseInt(sunsetApi) - 7;
+
+    const sunriseSubstrMT = sunriseApi.substring(2);
+    const sunsetSubstrMT = sunsetApi.substring(2);
+
+    const finalRiseMT = convertedMTRise + sunriseSubstrMT;
+    const finalSetMT = convertedMTSet + sunsetSubstrMT;
+
+    console.log(finalRiseMT, finalSetMT)
+
+
   } else if (timeZone === "pacific") {
-    const covertedPSTRise = parseInt(sunriseApi) - 7;
-    const covertedPSTSet = parseInt(sunsetApi) - 7;
+    const convertedPSTRise = parseInt(sunriseApi) - 7;
+    const convertedPSTSet = parseInt(sunsetApi) - 7;
 
-    //     console.log(covertedPST);
-  }
+    const sunriseSubstrPST = sunriseApi.substring(2);
+    const sunsetSubstrPST = sunsetApi.substring(2);
 
-  // const newSunriseTime = parseInt(sunrise) + 4
-  // console.log(newSunriseTime)
+    const finalRisePST = convertedPSTRise + sunriseSubstrPST;
+    const finalSetPST = convertedPSTSet + sunsetSubstrPST;
 
-  // const testing = () => {
-  //   const test = '12:45:10 AM'
+    console.log(finalRisePST, finalSetPST);
 
-  //   console.log(typeof(test.substring(2)))
-  //   console.log(typeof(parseInt(test)))
+}
+},[apiResult])
 
-  // }
-  // testing()
+
 
   return <div></div>;
 };
