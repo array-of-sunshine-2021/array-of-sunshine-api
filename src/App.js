@@ -25,7 +25,7 @@ function App() {
       },
     {
         timezone: 'central',
-        lat:29.7604,
+        lat: 29.7604,
         lng:95.3698,
         timezone: 'central',
       },
