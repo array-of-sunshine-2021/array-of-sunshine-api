@@ -32,7 +32,7 @@ useEffect(() => {
 
       const convertedCTRise = parseInt(sunriseApi) - 5;
 
-      const sunriseSubstrCT = sunriseApi.substring(2);
+      const sunriseSubstrCT = sunriseApi.substring(2, 8);
 
       const finalRiseCT = convertedCTRise + sunriseSubstrCT;
 
@@ -42,7 +42,7 @@ useEffect(() => {
 
       const convertedCTSet = parseInt(sunsetApi) - 5;
 
-      const sunsetSubstrCT = sunsetApi.substring(2);
+      const sunsetSubstrCT = sunsetApi.substring(2, 8);
 
       const finalSetCT = convertedCTSet + sunsetSubstrCT;
 
