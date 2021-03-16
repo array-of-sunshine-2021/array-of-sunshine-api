@@ -109,6 +109,7 @@ function App() {
        apiResult = {result}
        userDuration = {duration}
        timeZone = {userChoiceTimeZone}
+       radioChoice = {sunrise}
       />
     </div>
 

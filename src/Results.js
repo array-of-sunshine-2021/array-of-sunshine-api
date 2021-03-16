@@ -1,65 +1,97 @@
 import {useEffect} from 'react'
 
 
-const Results = ({ apiResult, userDuration, timeZone }) => {
+const Results = ({ apiResult, userDuration, timeZone, radioChoice}) => {
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
   console.log(apiResult);
 
+  
 useEffect(() => {
-    if (timeZone === "eastern") {
+    if (timeZone === "eastern" && radioChoice === "sunrise") {
 
       const convertedESTRise = parseInt(sunriseApi) - 4;
+      
+      const sunriseSubstrEst = sunriseApi.substring(2);
+      
+      const finalRiseEST = convertedESTRise + sunriseSubstrEst;
+      
+      console.log(finalRiseEST)
+
+    } else if (timeZone === "eastern" && radioChoice === "sunset"){
+
       const convertedESTSet = parseInt(sunsetApi) - 4;
 
-      const sunriseSubstrEst = sunriseApi.substring(2);
       const sunsetSubstrEst = sunsetApi.substring(2);
-
-      const finalRiseEST = convertedESTRise + sunriseSubstrEst;
+      
       const finalSetEST = convertedESTSet + sunsetSubstrEst;
 
-      console.log (finalRiseEST, finalSetEST);
+      console.log(finalSetEST)
 
-      
+    } else if (timeZone === "central" && radioChoice === "sunrise"){
 
-  } else if (timeZone === "central") {
-    const convertedCTRise = parseInt(sunriseApi) - 5;
-    const convertedCTSet = parseInt(sunsetApi) - 5;
+      const convertedCTRise = parseInt(sunriseApi) - 5;
 
-    const sunriseSubstrCT = sunriseApi.substring(2);
-    const sunsetSubstrCT = sunsetApi.substring(2);
+      const sunriseSubstrCT = sunriseApi.substring(2);
 
-    const finalRiseCT = convertedCTRise + sunriseSubstrCT;
-    const finalSetCT = convertedCTSet + sunsetSubstrCT;
+      const finalRiseCT = convertedCTRise + sunriseSubstrCT;
 
-    console.log (finalRiseCT, finalSetCT)
+      console.log(finalRiseCT)
 
-  } else if (timeZone === "mountain") {
+    } else if (timeZone === "central" && radioChoice === "sunset") {
 
-    const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
-    const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
+      const convertedCTSet = parseInt(sunsetApi) - 5;
 
+      const sunsetSubstrCT = sunsetApi.substring(2);
 
+      const finalSetCT = convertedCTSet + sunsetSubstrCT;
 
-    const sunriseSubstrMT = sunriseApi.substring(1,7) + ' AM';
-    const sunsetSubstrMT = sunsetApi.substring(1,7) + ' PM';
+      console.log(finalSetCT)
 
-    const finalRiseMT = convertedMTRise + sunriseSubstrMT;
-    const finalSetMT = convertedMTSet + sunsetSubstrMT;
+    }else if (timeZone === "mountain" && radioChoice === "sunrise"){
 
-  } else if (timeZone === "pacific") {
-    const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
-    const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
+      const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
 
-    const sunriseSubstrPST = sunriseApi.substring(1,7) + ' AM';
-    const sunsetSubstrPST = sunsetApi.substring(1,7) + ' PM';
+      const sunriseSubstrMT = sunriseApi.substring(1,7) + ' AM';
 
-    const finalRisePST = convertedPSTRise + sunriseSubstrPST;
-    const finalSetPST = convertedPSTSet + sunsetSubstrPST;
+      const finalRiseMT = convertedMTRise + sunriseSubstrMT;
 
-    console.log(finalRisePST, finalSetPST);
+      console.log(finalRiseMT)
 
-}
+    }else if (timeZone === "mountain" && radioChoice === "sunset"){
+
+      const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
+
+      const sunsetSubstrMT = sunsetApi.substring(1,7) + ' PM';
+
+      const finalSetMT = convertedMTSet + sunsetSubstrMT;
+
+      console.log(finalSetMT)
+
+    }else if (timeZone === "pacific" && radioChoice === "sunrise"){
+
+      const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
+
+      const sunriseSubstrPST = sunriseApi.substring(1,7) + ' AM';
+
+      const finalRisePST = convertedPSTRise + sunriseSubstrPST;
+
+      console.log(finalRisePST)
+
+    }else if (timeZone === "pacific" && radioChoice === "sunset"){
+
+      const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
+
+      const sunsetSubstrPST = sunsetApi.substring(1,7) + ' PM';
+
+      const finalSetPST = convertedPSTSet + sunsetSubstrPST;
+
+      console.log(finalSetPST)
+    }
+    
+  
+    
+
 },[apiResult])
 
 
