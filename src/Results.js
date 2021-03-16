@@ -1,6 +1,4 @@
 import {useEffect} from 'react'
-import Moment from 'react-moment';
-import 'moment-timezone';
 
 
 const Results = ({ apiResult, userDuration, timeZone }) => {
@@ -37,24 +35,24 @@ useEffect(() => {
     console.log (finalRiseCT, finalSetCT)
 
   } else if (timeZone === "mountain") {
-    const convertedMTRise = parseInt(sunriseApi) - 7;
-    const convertedMTSet = parseInt(sunsetApi) - 7;
 
-    const sunriseSubstrMT = sunriseApi.substring(2);
-    const sunsetSubstrMT = sunsetApi.substring(2);
+    const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
+    const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
+
+
+
+    const sunriseSubstrMT = sunriseApi.substring(1,7) + ' AM';
+    const sunsetSubstrMT = sunsetApi.substring(1,7) + ' PM';
 
     const finalRiseMT = convertedMTRise + sunriseSubstrMT;
     const finalSetMT = convertedMTSet + sunsetSubstrMT;
 
-    console.log(finalRiseMT, finalSetMT)
-
-
   } else if (timeZone === "pacific") {
-    const convertedPSTRise = parseInt(sunriseApi) - 7;
-    const convertedPSTSet = parseInt(sunsetApi) - 7;
+    const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
+    const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
 
-    const sunriseSubstrPST = sunriseApi.substring(2);
-    const sunsetSubstrPST = sunsetApi.substring(2);
+    const sunriseSubstrPST = sunriseApi.substring(1,7) + ' AM';
+    const sunsetSubstrPST = sunsetApi.substring(1,7) + ' PM';
 
     const finalRisePST = convertedPSTRise + sunriseSubstrPST;
     const finalSetPST = convertedPSTSet + sunsetSubstrPST;
