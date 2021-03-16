@@ -16,27 +16,31 @@ function App() {
     {
       timezone: "eastern",
       lat: 43.6532,
-      lng: 79.3832,
+      lng: -79.3832,
     },
     {
       timezone: "central",
-      lat: 29.7604,
-      lng: 95.3698,
+      // lat: 29.7604,
+      // lng: -95.3698,
+      lat: 12.769,
+      lng: 85.6024,
     },
     {
       timezone: "pacific",
-      lat: 37.7749,
-      lng: 122.4194,
+      // lat: 37.7749,
+      // lng: -122.4194,
+      lat: 8.7832,
+      lng: 124.5085,
     },
     {
       timezone: "mountain",
       lat: 33.4484,
-      lng: 112.074,
+      lng: -112.074,
     },
   ];
-
+  //api.sunrise-sunset.org/json?lat=8.7832&lng=124.5085
   //create functions to handle input changes from the form
-  const handleDateInput = (event) => {
+  https: const handleDateInput = (event) => {
     const date = event.target.value;
     setDateInput(date);
   };
@@ -97,3 +101,36 @@ function App() {
 }
 
 export default App;
+//Use the Sunrise/Sunset API
+ //https://sunrise-sunset.org/api
+
+// MY UNDERSTANDING UNDERSTANDING
+
+ //App will suggest the time the user should leave for their run in order to hit sunrise or be back before sunset
+  //Time will be suggested for user using a dropdown menu to select time: 15mins, 30mins, 45mins, 60mins
+
+// Allow user enter the date of their run and choose whether to start the run by sunrise or finish the run before sunset
+  //If user decides to start the run by sunrise, that is, clicks the 'start by sunrise' button...
+    //User should set the duration of the run by the sunrise 'time'. For example, if sunrise starts by 8am, user cannot set 'duration of run' before 8am. It should throw an error if user does. So the 'start by sunrise' option button checks to see that the user picks a duration by or after 8am.
+
+    //However, if user decides to not run till sunset by selecting the 'run before sunset' button, 
+      // We get the value of 'sunset' time, find the difference between the sunset time and sunrise time to determine if the 'duration of the time to run' chosen by the user could be accomodated in the difference of the time. 
+        //If it could, allow user to run
+
+          //If not, the code should throw an error like 'insufficient time' to take a run.
+            //For example, if sunrise is 8am and sunset is 6pm in my location, and the current time I decided to run is 5:30pm (5:30pm is still after sunrise), choosing a duration of more than 30mins should throw an error. Because I won't be back before sunset (6pm)
+
+// Requirements:
+// • Using the Sunrise/Sunset API - https://sunrise-sunset.org/api - suggest the time the user should leave for their run in order to hit sunrise or be back before sunset
+
+// • Users should be able to enter the date of their run and choose whether they want to start the run
+
+
+// by sunrise or finish the run before the sun sets
+
+// • If it’s sun set, enter the duration of the run
+// • The app will suggest the time to leave for the run in order to hit sunrise or be back before sunset
+// • Proper error handling. For example:
+// • If a user types in a query that yields no result - they should be provided feedback (e.g. there
+// were no items found)
+// • Common error resp
