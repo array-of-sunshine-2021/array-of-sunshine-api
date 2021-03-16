@@ -32,7 +32,7 @@ const Form = (props) => {
                 <input type="radio" name="sunInput" className="sunInput" value ="sunrise" onChange = {props.sunRun} onClick = {handleToggleSunrise}/>
 
                 <label htmlFor="sunInput">Before Sunset</label>
-                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange = {props.sunRun} />
+                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange = {props.sunRun}  onClick = {handleToggle}/>
 
                 <div className={`${sunSet ? "runDuration" : "runDurationVisible"}`}>
                     <label htmlFor="runLength">How long is your run?</label>
