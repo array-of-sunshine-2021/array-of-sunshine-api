@@ -1,4 +1,7 @@
 import {useEffect} from 'react'
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 
 const Results = ({ apiResult, userDuration, timeZone }) => {
   const sunriseApi = apiResult.sunrise;
