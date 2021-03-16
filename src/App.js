@@ -87,8 +87,6 @@ function App() {
       },
     }).then((response) => {
       response = response.data.results;
-      // const apiSunrise = response.sunrise;
-      // const apiSunset = response.sunset;
       setResult(response)
     });
   };

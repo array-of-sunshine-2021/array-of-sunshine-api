@@ -30,9 +30,9 @@ useEffect(() => {
 
     } else if (timeZone === "central" && radioChoice === "sunrise"){
 
-      const convertedCTRise = parseInt(sunriseApi) - 5;
+      const convertedCTRise = parseInt(sunriseApi) - 5
 
-      const sunriseSubstrCT = sunriseApi.substring(2, 8);
+      const sunriseSubstrCT = sunriseApi.substring(2,8) + " AM"
 
       const finalRiseCT = convertedCTRise + sunriseSubstrCT;
 
@@ -42,7 +42,7 @@ useEffect(() => {
 
       const convertedCTSet = parseInt(sunsetApi) - 5;
 
-      const sunsetSubstrCT = sunsetApi.substring(2, 8);
+      const sunsetSubstrCT = sunsetApi.substring(2,8) + 'PM';
 
       const finalSetCT = convertedCTSet + sunsetSubstrCT;
 
@@ -87,6 +87,8 @@ useEffect(() => {
       const finalSetPST = convertedPSTSet + sunsetSubstrPST;
 
       console.log(finalSetPST)
+    } else {
+      alert("youve done something wrong")
     }
     
   
