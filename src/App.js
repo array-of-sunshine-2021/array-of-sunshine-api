@@ -8,10 +8,8 @@ import Results from "./Results.js"
 function App() {
   //define state for the form inputs
   const [dateInput, setDateInput] = useState('');
-  const [sunrise , setSunrise] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [duration , setDuration] = useState('');
   const [result , setResult] = useState([]);
   const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('')
 
@@ -61,17 +59,6 @@ function App() {
   }
 
 
-  const handleRadioChoice = (event) => {
-    const radioChoice = event.target.value;
-    setSunrise(radioChoice)
-  }
-
-  const handleDuration = (event) => {
-    const durationChoice = event.target.value;
-    setDuration(durationChoice)
-  }
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios({
@@ -97,14 +84,12 @@ function App() {
       date= {dateInput}
       dateChange={handleDateInput}
       timeZone = {handleTimeZone}
-      sunRun = {handleRadioChoice}
-      duration = {handleDuration}
+      
       />
       <Results
        apiResult = {result}
-       userDuration = {duration}
        timeZone = {userChoiceTimeZone}
-       radioChoice = {sunrise}
+     
       />
       
     </div>

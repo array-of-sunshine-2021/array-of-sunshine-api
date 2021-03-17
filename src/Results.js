@@ -10,12 +10,12 @@ const Results = ({ apiResult, timeZone }) => {
 
   const [rise, setRise] = useState('')
   const [sunSet, setSunSet] = useState('')
-
-  const [sunSet, setSunSet] = useState('false');
+  
+  
+  useEffect(() => {
     
   
 
-  useEffect(() => {
     if (timeZone === "eastern") {
       const convertedESTRise = parseInt(sunriseApi) - 4;
 
