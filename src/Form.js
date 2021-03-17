@@ -12,10 +12,10 @@ const Form = (props) => {
             <label htmlFor="timeZonesInput">Pick your timezone:</label>
             <select name="timeZonesInput" id="timeZonesInput" className="timeZoneInput" onChange ={props.timeZone}>
                 <option value="placeholder" defaultValue>Choose One:</option>
-                <option value="eastern">Eastern</option>
-                <option value="central">Central</option>
-                <option value="pacific">Pacific</option>
-                <option value="mountain">Mountain</option>
+                <option value="America/Toronto">Eastern</option>
+                <option value="America/Rainy_River">Central</option>
+                <option value="America/Vancouver">Pacific</option>
+                <option value="America/Denver">Mountain</option>
             </select>
 
             <button type="submit" onClick={props.submit}>Let's Workout!</button>
