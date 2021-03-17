@@ -95,22 +95,19 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
 
   return (
     <main>
-  
-    <div>
-      <p>{rise}</p>
+      
+      <div>
+        <p>{rise}</p>
+        {
+          rise
+          ?<ContainerForm />
+          :''        
+        }
+      </div>
 
-
-      {
-        rise
-        ?<ContainerForm />
-        :''        
-      }
-    </div>
-
-
-    <div className = "sunSetContainer">
-      <p>{sunSet}</p>
-    </div>
+      <div className = "sunSetContainer">
+        <p>{sunSet}</p>
+      </div>
 
 
     </main>

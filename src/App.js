@@ -13,7 +13,7 @@ function App() {
   const [longitude, setLongitude] = useState('');
   const [duration , setDuration] = useState('');
   const [result , setResult] = useState([]);
-  const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('')
+  const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('');
 
 
   const timeZoneCoordinates = [
