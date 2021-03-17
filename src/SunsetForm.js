@@ -1,14 +1,15 @@
 //ContainerForm.js
 
+const SunsetForm = () => {
 
-const ContainerForm = () => {
 
      return(
           <div>
-               <label htmlFor="sunInput">Before Sunset</label>
+               <label htmlFor="sunInput">Run and watch the sunset</label>
                <input type="radio" name="sunInput" className="sunInput" value ="sunset"/>
+               
           </div>
      )
 }
 
-export default ContainerForm; 
+export default SunsetForm; 
