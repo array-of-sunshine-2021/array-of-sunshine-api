@@ -25,26 +25,6 @@ const Form = (props) => {
                 <option value="pacific">Pacific</option>
                 <option value="mountain">Mountain</option>
             </select>
-
-            {/* <div className="sunState">
-                <p>When will you go for a run?</p>
-                <label htmlFor="sunInput">After Sunrise</label>
-                <input type="radio" name="sunInput" className="sunInput" value ="sunrise" onChange = {props.sunRun} onClick = {handleToggleSunrise}/>
-
-                <label htmlFor="sunInput">Before Sunset</label>
-                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange = {props.sunRun}  onClick = {handleToggle}/>
-
-                <div className={`${sunSet ? "runDuration" : "runDurationVisible"}`}>
-                    <label htmlFor="runLength">How long is your run?</label>
-                    <select onChange = {props.duration}name="runLength" id="runLength">
-                        <option value="15">15 min</option>
-                        <option value="30">30 min</option>
-                        <option value="60">60 min</option>
-                        <option value="90">90 min</option>
-                    </select>
-                </div>
-            </div> */}
-
             <button type="submit" onClick={props.submit}>Let's Workout!</button>
 
 
