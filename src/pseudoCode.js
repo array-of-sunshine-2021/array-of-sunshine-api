@@ -1,31 +1,10 @@
-//MVP pseudoCODE WAHOOOOO
+// SUNSET & SUNRISE are displayed on page according to the user's timezone
 
-//user completes a form to decide the best time to take a run between sunrise and sunset
+//get the sunrise and sunset time from the API & use moment() to format the time in order to subtract min value
 
-//form data includes:
-    //Date
-    //Timezone
-        //create an array of objects to represent timezones based off of preselected long & lat (AKA a pre determined city)
-            //filter out the 'timezones' that haven't been selected by the user
-    //Sunrise or Sunset
-        //IF USER CHOOSES SUNSET:
-            //intended length of run
+//user picks sunrise or sunet RADIO button
 
-//on submit of the form:
-    //STEP ONE: capture the value of each of the form inputs to pass to the API
-    //STEP TWO: call the API with specified params 
-
-    //IF user selects 'sunset' prompt them to pick a desired run time 
-
-//DISPLAY:
-    //USER CHOSE:
-        //SUNRISE:
-            //"the sun rises at *** time" API response
-            //"you have *** time to complete your run" API response
-
-        //SUNSET:
-            //"the sun sets at *** time" API response
-            //"make sure to get out for your run by *** time" API response (time of sunset - length of run) MATH! :)
+//minute value (run duration) is captured from the user OPTION form and subtracted from either sunrise or sunset time
 
 //ERROR handling:
     //.catch() after the API call for cases when the API may be down/out/bad/etc. 

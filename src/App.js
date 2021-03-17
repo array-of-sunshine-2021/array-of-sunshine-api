@@ -15,7 +15,6 @@ function App() {
   const [result , setResult] = useState([]);
   const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('');
 
-
   const timeZoneCoordinates = [
     {
         timezone: 'eastern',
