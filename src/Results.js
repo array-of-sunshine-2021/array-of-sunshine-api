@@ -86,7 +86,7 @@ const Results = ({ apiResult, timeZone }) => {
       setSunSet(finalSetPST)
     }
 
-  }, [apiResult, sunriseApi, sunsetApi ])
+  }, [apiResult])
 
 
   return (

@@ -86,14 +86,11 @@ function App() {
       timeZone = {handleTimeZone}
       
       />
-      {
-        userChoiceTimeZone 
-        ? <Results
+    <Results
         apiResult = {result}
         timeZone = {userChoiceTimeZone}
         /> 
-        : ""
-      }
+
 
       
     </div>
