@@ -111,6 +111,13 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
 
     <div className = "sunSetContainer">
       <p>{sunSet}</p>
+      {
+        sunSet
+
+        ? 'yay'
+
+        : ' '
+      }
     </div>
 
 
