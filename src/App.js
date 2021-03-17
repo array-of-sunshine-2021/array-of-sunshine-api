@@ -39,7 +39,6 @@ function App() {
     }
   ]
 
-  //create functions to handle input changes from the form
   const handleDateInput = (event) => {
     const date = event.target.value;
     setDateInput(date);
@@ -51,7 +50,6 @@ function App() {
     setUserChoiceTimeZone(timeZoneSelected)
 
     const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
-      // console.log(timeZoneCoordinate)
       return(
         timeZoneSelected === timeZoneCoordinate.timezone
       )
@@ -107,8 +105,8 @@ function App() {
        userDuration = {duration}
        timeZone = {userChoiceTimeZone}
        radioChoice = {sunrise}
-       
       />
+      
     </div>
 
   );

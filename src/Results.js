@@ -1,5 +1,5 @@
 import {useState , useEffect} from 'react'
-// import ContainerForm from './ContainerForm.js'
+import ContainerForm from './ContainerForm.js'
 
 
 const Results = ({ apiResult, timeZone }) => {
@@ -94,6 +94,7 @@ const Results = ({ apiResult, timeZone }) => {
 
   return (
     <main>
+<<<<<<< HEAD
       
       <div>
         <p>{rise}</p>
@@ -102,10 +103,23 @@ const Results = ({ apiResult, timeZone }) => {
             <input type="radio" name="sunInput" className="sunInput" value ="sunset"  />
           </form>
       </div>
+=======
+  
+    <div>
+      <p>{rise}</p>
+
+
+      {
+        rise
+        ?<ContainerForm />
+
+        :''        
+      }
+    </div>
+>>>>>>> 4eaabe9d8bca496185aab257afbd4380f1a5af6d
 
 
     <div className = "sunSetContainer">
-
       <p>{sunSet}</p>
     </div>
 
