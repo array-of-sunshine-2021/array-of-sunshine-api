@@ -1,22 +1,7 @@
 //ContainerForm.js
 
-import {useState , useEffect} from 'react'
+const ContainerForm = () => {
 
-
-const ContainerForm = ({fetchApi}) => {
-
-     const [button , setbutton ] = useState(false)
-
-
-     useEffect(() => {
-          if(button){
-               setbutton(true)
-          }else{
-               setbutton(false)
-          }
-
-     } , [fetchApi])
-     console.log(fetchApi)
 
      return(
           <div>
