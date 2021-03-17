@@ -15,6 +15,7 @@ function App() {
   const [rise, setRise] = useState('')
   const [sunSet, setSunSet] = useState('')
 
+//create
   const timeZoneCoordinates = [
     {
         timezone: 'America/Toronto',
@@ -39,16 +40,16 @@ function App() {
     }
   ]
 
+//capture the date input from the form
   const handleDateInput = (event) => {
     const date = event.target.value;
     setDateInput(date);
   };
 
-  const handleTimeZone = (event) => {
+//Handle form to capture the timezone the user selects and add it to the params of the API
+    const handleTimeZone = (event) => {
     const timeZoneSelected = event.target.value
-
     setUserChoiceTimeZone(timeZoneSelected)
-
     const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
       return(
         timeZoneSelected === timeZoneCoordinate.timezone
@@ -60,9 +61,9 @@ function App() {
     setLongitude(longitude)
   }
 
-
+//call the API on the form submit
   const handleSubmit = (event) => {
-    
+    event.preventDefault();
     axios({
       method: "GET",
       url: "https://api.sunrise-sunset.org/json",
@@ -81,7 +82,6 @@ function App() {
   
       setRise(sunriseApi)
       setSunSet(sunsetApi)
-    
     })
   };
 
@@ -99,15 +99,7 @@ function App() {
       dateChange={handleDateInput}
       timeZone = {handleTimeZone}
       />
-<<<<<<< HEAD
-    <Results
-        apiResult = {result}
-        timeZone = {userChoiceTimeZone}
-        /> 
-
-=======
       
-         
       <Results
       apiResult = {result}
       timeZone = {userChoiceTimeZone}
@@ -116,7 +108,6 @@ function App() {
       /> 
       
     
->>>>>>> a7acb58fcc1ed819083860389967bd12ecd8d8a8
 
       
     </div>

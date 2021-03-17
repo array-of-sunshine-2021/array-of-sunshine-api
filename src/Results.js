@@ -33,10 +33,6 @@ const Results = ({ rise , sunset , timeZone}) => {
 
 
 
-<<<<<<< HEAD
-  }, [apiResult])
-=======
->>>>>>> a7acb58fcc1ed819083860389967bd12ecd8d8a8
 
 
     return (
