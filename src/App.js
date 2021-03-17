@@ -9,13 +9,11 @@ import { faRunning } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   //define state for the form inputs
-  const [dateInput, setDateInput] = useState("");
-  const [sunrise, setSunrise] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [duration, setDuration] = useState("");
-  const [result, setResult] = useState([]);
-  const [userChoiceTimeZone, setUserChoiceTimeZone] = useState("");
+  const [dateInput, setDateInput] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+  const [result , setResult] = useState([]);
+  const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('')
 
   const timeZoneCoordinates = [
     {
@@ -61,16 +59,6 @@ function App() {
     setLongitude(longitude);
   };
 
-  const handleRadioChoice = (event) => {
-    const radioChoice = event.target.value;
-    setSunrise(radioChoice);
-  };
-
-  const handleDuration = (event) => {
-    const durationChoice = event.target.value;
-    setDuration(durationChoice);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios({
@@ -96,18 +84,16 @@ function App() {
       </header>
 
       <Form
-        submit={handleSubmit}
-        date={dateInput}
-        dateChange={handleDateInput}
-        timeZone={handleTimeZone}
-        sunRun={handleRadioChoice}
-        duration={handleDuration}
+      submit={handleSubmit}
+      date= {dateInput}
+      dateChange={handleDateInput}
+      timeZone = {handleTimeZone}
+      
       />
       <Results
-        apiResult={result}
-        userDuration={duration}
-        timeZone={userChoiceTimeZone}
-        radioChoice={sunrise}
+       apiResult = {result}
+       timeZone = {userChoiceTimeZone}
+     
       />
     </div>
   );
