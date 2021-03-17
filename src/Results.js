@@ -103,7 +103,6 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
       {
         rise
         ?<ContainerForm />
-
         :''        
       }
     </div>
