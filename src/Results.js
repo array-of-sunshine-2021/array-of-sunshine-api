@@ -1,24 +1,26 @@
-import {useEffect} from 'react'
+import {useState , useEffect} from 'react'
+import ContainerForm from './ContainerForm.js'
 
 
-const Results = ({ apiResult, userDuration, timeZone, radioChoice}) => {
+const Results = ({ apiResult, userDuration, timeZone}) => {
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
-  console.log(apiResult);
 
-  
-useEffect(() => {
-    if (timeZone === "eastern" && radioChoice === "sunrise") {
+  const [rise , setRise] = useState('')
+  const [sunSet , setSunSet] = useState('')
+
+
+  useEffect(() => {
+    if (timeZone === "eastern") {
 
       const convertedESTRise = parseInt(sunriseApi) - 4;
       
       const sunriseSubstrEst = sunriseApi.substring(2);
       
       const finalRiseEST = convertedESTRise + sunriseSubstrEst;
-      
-      console.log(finalRiseEST)
 
-    } else if (timeZone === "eastern" && radioChoice === "sunset"){
+      setRise(finalRiseEST)
+      
 
       const convertedESTSet = parseInt(sunsetApi) - 4;
 
@@ -26,9 +28,9 @@ useEffect(() => {
       
       const finalSetEST = convertedESTSet + sunsetSubstrEst;
 
-      console.log(finalSetEST)
+      setSunSet(finalSetEST)
 
-    } else if (timeZone === "central" && radioChoice === "sunrise"){
+    } else if (timeZone === "central"){
 
       const convertedCTRise = parseInt(sunriseApi) - 5
 
@@ -36,19 +38,19 @@ useEffect(() => {
 
       const finalRiseCT = convertedCTRise + sunriseSubstrCT;
 
-      console.log(finalRiseCT)
+      setRise(finalRiseCT)
 
-    } else if (timeZone === "central" && radioChoice === "sunset") {
+    
 
       const convertedCTSet = parseInt(sunsetApi) - 5;
 
-      const sunsetSubstrCT = sunsetApi.substring(2,8) + 'PM';
+      const sunsetSubstrCT = sunsetApi.substring(2,8) + ' PM';
 
       const finalSetCT = convertedCTSet + sunsetSubstrCT;
 
-      console.log(finalSetCT)
+      setSunSet(finalSetCT)
 
-    }else if (timeZone === "mountain" && radioChoice === "sunrise"){
+    }else if (timeZone === "mountain"){
 
       const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
 
@@ -56,9 +58,9 @@ useEffect(() => {
 
       const finalRiseMT = convertedMTRise + sunriseSubstrMT;
 
-      console.log(finalRiseMT)
+      setRise(finalRiseMT)
 
-    }else if (timeZone === "mountain" && radioChoice === "sunset"){
+    
 
       const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
 
@@ -66,9 +68,9 @@ useEffect(() => {
 
       const finalSetMT = convertedMTSet + sunsetSubstrMT;
 
-      console.log(finalSetMT)
+      setSunSet(finalSetMT)
 
-    }else if (timeZone === "pacific" && radioChoice === "sunrise"){
+    }else if (timeZone === "pacific"){
 
       const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
 
@@ -76,9 +78,9 @@ useEffect(() => {
 
       const finalRisePST = convertedPSTRise + sunriseSubstrPST;
 
-      console.log(finalRisePST)
+      setRise(finalRisePST)
 
-    }else if (timeZone === "pacific" && radioChoice === "sunset"){
+    
 
       const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
 
@@ -86,19 +88,34 @@ useEffect(() => {
 
       const finalSetPST = convertedPSTSet + sunsetSubstrPST;
 
-      console.log(finalSetPST)
-    } else {
-      alert("youve done something wrong")
+      setSunSet(finalSetPST)
     }
-    
-  
-    
-
 },[apiResult])
 
 
+  return (
+    <main>
+  
+    <div>
+      <p>{rise}</p>
 
-  return <div></div>;
+
+      {
+        rise
+        ?<ContainerForm />
+
+        :''        
+      }
+    </div>
+
+
+    <div className = "sunSetContainer">
+      <p>{sunSet}</p>
+    </div>
+
+
+    </main>
+  )
 };
 
 export default Results;

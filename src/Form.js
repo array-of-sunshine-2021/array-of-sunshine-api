@@ -26,7 +26,7 @@ const Form = (props) => {
                 <option value="mountain">Mountain</option>
             </select>
 
-            <div className="sunState">
+            {/* <div className="sunState">
                 <p>When will you go for a run?</p>
                 <label htmlFor="sunInput">After Sunrise</label>
                 <input type="radio" name="sunInput" className="sunInput" value ="sunrise" onChange = {props.sunRun} onClick = {handleToggleSunrise}/>
@@ -43,7 +43,7 @@ const Form = (props) => {
                         <option value="90">90 min</option>
                     </select>
                 </div>
-            </div>
+            </div> */}
 
             <button type="submit" onClick={props.submit}>Let's Workout!</button>
 
