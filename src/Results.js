@@ -1,10 +1,13 @@
 import {useState , useEffect} from 'react'
-import ContainerForm from './ContainerForm.js'
-
+// import ContainerForm from './ContainerForm.js'
+import Moment from 'react-moment'
+import moment from 'moment'
 
 const Results = ({ apiResult, userDuration, timeZone}) => {
+  console.log(apiResult)
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
+
 
   const [rise , setRise] = useState('')
   const [sunSet , setSunSet] = useState('')
@@ -12,97 +15,103 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
 
   useEffect(() => {
     if (timeZone === "eastern") {
+  
+      console.log(sunriseApi)
 
-      const convertedESTRise = parseInt(sunriseApi) - 4;
+      const time = moment(sunriseApi)
+      console.log(time)
+      // const convertedESTRise = parseInt(sunriseApi) - 4;
       
-      const sunriseSubstrEst = sunriseApi.substring(2);
+      // const sunriseSubstrEst = sunriseApi.substring(2);
       
-      const finalRiseEST = convertedESTRise + sunriseSubstrEst;
+      // const finalRiseEST = convertedESTRise + sunriseSubstrEst;
 
-      setRise(finalRiseEST)
+      // setRise(finalRiseEST)
       
 
-      const convertedESTSet = parseInt(sunsetApi) - 4;
+      // const convertedESTSet = parseInt(sunsetApi) - 4;
 
-      const sunsetSubstrEst = sunsetApi.substring(2);
+      // const sunsetSubstrEst = sunsetApi.substring(2);
       
-      const finalSetEST = convertedESTSet + sunsetSubstrEst;
+      // const finalSetEST = convertedESTSet + sunsetSubstrEst;
 
-      setSunSet(finalSetEST)
+      // setSunSet(finalSetEST)
 
     } else if (timeZone === "central"){
+      
 
-      const convertedCTRise = parseInt(sunriseApi) - 5
 
-      const sunriseSubstrCT = sunriseApi.substring(2,8) + " AM"
+      // const convertedCTRise = parseInt(sunriseApi) - 5
 
-      const finalRiseCT = convertedCTRise + sunriseSubstrCT;
+      // const sunriseSubstrCT = sunriseApi.substring(2,8) + " AM"
 
-      setRise(finalRiseCT)
+      // const finalRiseCT = convertedCTRise + sunriseSubstrCT;
 
-    
+      // setRise(finalRiseCT)
 
-      const convertedCTSet = parseInt(sunsetApi) - 5;
+      console.log('central')
 
-      const sunsetSubstrCT = sunsetApi.substring(2,8) + ' PM';
+      // const convertedCTSet = parseInt(sunsetApi) - 5;
 
-      const finalSetCT = convertedCTSet + sunsetSubstrCT;
+      // const sunsetSubstrCT = sunsetApi.substring(2,8) + ' PM';
 
-      setSunSet(finalSetCT)
+      // const finalSetCT = convertedCTSet + sunsetSubstrCT;
+
+      // setSunSet(finalSetCT)
 
     }else if (timeZone === "mountain"){
 
-      const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
+      // const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
 
-      const sunriseSubstrMT = sunriseApi.substring(1,7) + ' AM';
+      // const sunriseSubstrMT = sunriseApi.substring(1,7) + ' AM';
 
-      const finalRiseMT = convertedMTRise + sunriseSubstrMT;
+      // const finalRiseMT = convertedMTRise + sunriseSubstrMT;
 
-      setRise(finalRiseMT)
+      // setRise(finalRiseMT)
 
     
 
-      const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
+      // const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
 
-      const sunsetSubstrMT = sunsetApi.substring(1,7) + ' PM';
+      // const sunsetSubstrMT = sunsetApi.substring(1,7) + ' PM';
 
-      const finalSetMT = convertedMTSet + sunsetSubstrMT;
+      // const finalSetMT = convertedMTSet + sunsetSubstrMT;
 
-      setSunSet(finalSetMT)
+      // setSunSet(finalSetMT)
 
     }else if (timeZone === "pacific"){
 
-      const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
+      // const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
 
-      const sunriseSubstrPST = sunriseApi.substring(1,7) + ' AM';
+      // const sunriseSubstrPST = sunriseApi.substring(1,7) + ' AM';
 
-      const finalRisePST = convertedPSTRise + sunriseSubstrPST;
+      // const finalRisePST = convertedPSTRise + sunriseSubstrPST;
 
-      setRise(finalRisePST)
+      // setRise(finalRisePST)
 
     
 
-      const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
+      // const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
 
-      const sunsetSubstrPST = sunsetApi.substring(1,7) + ' PM';
+      // const sunsetSubstrPST = sunsetApi.substring(1,7) + ' PM';
 
-      const finalSetPST = convertedPSTSet + sunsetSubstrPST;
+      // const finalSetPST = convertedPSTSet + sunsetSubstrPST;
 
-      setSunSet(finalSetPST)
+      // setSunSet(finalSetPST)
     }
 },[apiResult])
 
 
   return (
     <main>
-      
+
       <div>
         <p>{rise}</p>
-        {
+        {/* {
           rise
           ?<ContainerForm />
           :''        
-        }
+        } */}
       </div>
 
       <div className = "sunSetContainer">

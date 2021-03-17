@@ -82,9 +82,11 @@ function App() {
         lat: `${latitude}`,
         lng: `${longitude}`,
         date: `${dateInput}`,
+        formatted: 0,
       },
     }).then((response) => {
       response = response.data.results;
+      console.log(response)
       setResult(response)
     });
   };
