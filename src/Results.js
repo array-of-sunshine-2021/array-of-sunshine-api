@@ -2,13 +2,12 @@ import {useState , useEffect} from 'react'
 // import ContainerForm from './ContainerForm.js'
 
 
-const Results = ({ apiResult, userDuration, timeZone}) => {
+const Results = ({ apiResult, timeZone }) => {
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
 
   const [rise , setRise] = useState('')
   const [sunSet , setSunSet] = useState('')
-
 
   useEffect(() => {
     if (timeZone === "eastern") {
@@ -96,13 +95,13 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
   return (
     <main>
       
-      <div className={`${ ? "runDuration" : "runDurationVisible"}`}>
-        
+      <div>
         <p>{rise}</p>
-        <label htmlFor="sunInput">Before Sunset</label>
-          <input type="radio" name="sunInput" className="sunInput" value ="sunset"  />
-  
-    </div>
+          <form >
+            <label htmlFor="sunInput">Before Sunset</label>
+            <input type="radio" name="sunInput" className="sunInput" value ="sunset"  />
+          </form>
+      </div>
 
 
     <div className = "sunSetContainer">
