@@ -1,5 +1,7 @@
 import {useState , useEffect} from 'react'
 import ContainerForm from './ContainerForm.js'
+import Moment from 'react-moment';
+import "moment-timezone"
 
 
 const Results = ({ apiResult, userDuration, timeZone}) => {
@@ -9,10 +11,14 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
   const [rise , setRise] = useState('')
   const [sunSet , setSunSet] = useState('')
 
+  const m = Moment()
+  m.toString('2015-05-21T05:05:35+00:00');
+  
+
+
 
   useEffect(() => {
     if (timeZone === "eastern") {
-
       const convertedESTRise = parseInt(sunriseApi) - 4;
       
       const sunriseSubstrEst = sunriseApi.substring(2);
@@ -93,8 +99,12 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
 },[apiResult])
 
 
+
+
+
   return (
     <main>
+      {/* <Moment add={{hours:10}}>{date}</Moment> */}
   
     <div>
       <p>{rise}</p>
@@ -111,13 +121,7 @@ const Results = ({ apiResult, userDuration, timeZone}) => {
 
     <div className = "sunSetContainer">
       <p>{sunSet}</p>
-      {
-        sunSet
-
-        ? 'yay'
-
-        : ' '
-      }
+      
     </div>
 
 
