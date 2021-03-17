@@ -12,8 +12,8 @@ function App() {
   const [longitude, setLongitude] = useState('');
   const [result , setResult] = useState([]);
   const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('');
-  const [rise, setRise] = useState('')
-  const [sunSet, setSunSet] = useState('')
+  // const [rise, setRise] = useState('')
+  // const [sunSet, setSunSet] = useState('')
 
 //create
   const timeZoneCoordinates = [
@@ -74,18 +74,11 @@ function App() {
         formatted: 0, 
       },
     }).then((response) => {
-      console.log(response)
       const responseObj= response.data.results;
-      
-      const sunriseApi = responseObj.sunrise;
-      const sunsetApi = responseObj.sunset;
-  
-      setRise(sunriseApi)
-      setSunSet(sunsetApi)
+      setResult(responseObj)
+    
     })
   };
-
-
     
 
   return (
@@ -103,8 +96,8 @@ function App() {
       <Results
       apiResult = {result}
       timeZone = {userChoiceTimeZone}
-      rise = {rise}
-      sunset = {sunSet}
+      // rise = {rise}
+      // sunset = {sunSet}
       /> 
       
     
