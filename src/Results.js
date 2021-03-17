@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import SunsetForm from './SunsetForm'
 import SunriseForm from './SunriseForm'
-import moment from 'moment'
+
 
 
 const Results = ({ apiResult, timeZone }) => {
@@ -13,8 +13,6 @@ const Results = ({ apiResult, timeZone }) => {
   
   
   useEffect(() => {
-    
-  
 
     if (timeZone === "eastern") {
       const convertedESTRise = parseInt(sunriseApi) - 4;
@@ -61,7 +59,6 @@ const Results = ({ apiResult, timeZone }) => {
 
       setRise(finalRiseMT)
 
-
       const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
 
       const sunsetSubstrMT = sunsetApi.substring(1, 7);
@@ -80,8 +77,6 @@ const Results = ({ apiResult, timeZone }) => {
 
       setRise(finalRisePST)
 
-
-
       const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
 
       const sunsetSubstrPST = sunsetApi.substring(1, 7);
@@ -90,15 +85,8 @@ const Results = ({ apiResult, timeZone }) => {
 
       setSunSet(finalSetPST)
     }
-  }, [apiResult])
 
-
-  const duration = moment.duration({ hours: 0, minutes: 20, seconds: 0 })
-  const suggestedTime = moment(rise, 'HH:mm').subtract(duration).format('HH:mm');
-
-  console.log(suggestedTime)
-
-
+  }, [apiResult, sunriseApi, sunsetApi ])
 
 
   return (
@@ -109,16 +97,12 @@ const Results = ({ apiResult, timeZone }) => {
           <p>{rise}</p>
           {
             rise
-              ? <SunriseForm />
+              ? <SunriseForm
+              riseTime = {rise}
+              />
               : ''
           }
-
-
-
         </div>
-
-
-
 
         <div className="sunSetContainer">
           <p>{sunSet}</p>
@@ -127,11 +111,8 @@ const Results = ({ apiResult, timeZone }) => {
               ? <SunsetForm />
               : ''
           }
-
         </div>
       </form>
-
-
 
     </main>
   )

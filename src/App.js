@@ -9,11 +9,11 @@ import { faRunning } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   //define state for the form inputs
-  const [dateInput, setDateInput] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [result , setResult] = useState([]);
-  const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('')
+  const [dateInput, setDateInput] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [result, setResult] = useState([]);
+  const [userChoiceTimeZone, setUserChoiceTimeZone] = useState("");
 
   const timeZoneCoordinates = [
     {
@@ -79,23 +79,18 @@ function App() {
     <div className="App">
       <header>
         <h1 className="wrapper">
-          SUN RUN  <FontAwesomeIcon icon={faRunning} />
+          SUN RUN <FontAwesomeIcon icon={faRunning} />
         </h1>
       </header>
 
       <Form
-      submit={handleSubmit}
-      date= {dateInput}
-      dateChange={handleDateInput}
-      timeZone = {handleTimeZone}
-      
+        submit={handleSubmit}
+        date={dateInput}
+        dateChange={handleDateInput}
+        timeZone={handleTimeZone}
       />
-      <Results
-      className="results"
-       apiResult = {result}
-       timeZone = {userChoiceTimeZone}
-     
-      />
+
+      <Results apiResult={result} timeZone={userChoiceTimeZone} />
     </div>
   );
 }
