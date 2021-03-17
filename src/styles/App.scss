@@ -26,12 +26,11 @@ body {
   // color:$red-color;
 }
 
-header{
+header {
   background-color: $red-color;
   color: $green-color;
   height: 10vh;
   text-align: center;
-  
 
   h1 {
     padding-top: 30px;
@@ -42,27 +41,52 @@ header{
 button {
   border: none;
   border-radius: 5px;
-  background-color: $green-color;
-  padding: 0.5rem 2rem;
+  background-color: $red-color;
+  padding: 8px 20px;
   margin-top: 2rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 // FORM STYLES
 
 form {
-  text-align: center;
-  padding-top: 5rem;
-  p {
-    margin-bottom: 0;
-  }
+  // text-align: center;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
   label {
-    margin: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.7rem;
+
+  }
+
+  input {
+    // display: block;
+    // text-align: center;
+    margin-bottom: 10rem;
   }
 
   .dateInput {
     color: #797474;
-    font-size: 1.5rem
+    font-size: 1.5rem;
+    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+    font-weight: 700;
+  }
+  .timeZoneInput {
+    color: #797474;
+    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+    outline: none;
+    font-weight: 700;
+  }
 
+  textarea:focus,
+  input:focus {
+    outline: none;
   }
 }
 
