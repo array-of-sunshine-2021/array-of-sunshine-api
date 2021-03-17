@@ -1,6 +1,6 @@
-import {useState , useEffect} from 'react'
-import ContainerForm from './ContainerForm.js'
-import Moment from 'react-moment'
+import { useState, useEffect } from 'react'
+import SunsetForm from './SunsetForm'
+import SunriseForm from './SunriseForm'
 import moment from 'moment'
 
 
@@ -8,39 +8,35 @@ const Results = ({ apiResult, timeZone }) => {
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
 
+  const [rise, setRise] = useState('')
+  const [sunSet, setSunSet] = useState('')
 
-  const [rise , setRise] = useState('')
-  const [sunSet , setSunSet] = useState('')
+    
+  
 
   useEffect(() => {
     if (timeZone === "eastern") {
-  
-      console.log(sunriseApi)
+      const convertedESTRise = parseInt(sunriseApi) - 4;
 
-      const time = moment(sunriseApi)
-      console.log(time)
-      // const convertedESTRise = parseInt(sunriseApi) - 4;
-      
-      // const sunriseSubstrEst = sunriseApi.substring(2);
-      
-      // const finalRiseEST = convertedESTRise + sunriseSubstrEst;
+      const sunriseSubstrEst = sunriseApi.substring(2);
 
-      // setRise(finalRiseEST)
-      
+      const finalRiseEST = convertedESTRise + sunriseSubstrEst;
+
+      setRise(finalRiseEST)
+
       const convertedESTSet = parseInt(sunsetApi) - 4;
 
-      // const sunsetSubstrEst = sunsetApi.substring(2);
-      
-      // const finalSetEST = convertedESTSet + sunsetSubstrEst;
+      const sunsetSubstrEst = sunsetApi.substring(2);
+
+      const finalSetEST = convertedESTSet + sunsetSubstrEst;
 
       // setSunSet(finalSetEST)
 
-    } else if (timeZone === "central"){
-      
+    } else if (timeZone === "central") {
 
       const convertedCTRise = parseInt(sunriseApi) - 5;
 
-      const sunriseSubstrCT = sunriseApi.substring(2,8)
+      const sunriseSubstrCT = sunriseApi.substring(2, 8)
 
       // const sunriseSubstrCT = sunriseApi.substring(2,8) + " AM"
 
@@ -48,17 +44,17 @@ const Results = ({ apiResult, timeZone }) => {
 
       const convertedCTSet = parseInt(sunsetApi) - 5;
 
-      const sunsetSubstrCT = sunsetApi.substring(2,8);
+      const sunsetSubstrCT = sunsetApi.substring(2, 8);
 
       // const finalSetCT = convertedCTSet + sunsetSubstrCT;
 
       // setSunSet(finalSetCT)
 
-    }else if (timeZone === "mountain"){
+    } else if (timeZone === "mountain") {
 
       // const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
 
-      const sunriseSubstrMT = sunriseApi.substring(1,7);
+      const sunriseSubstrMT = sunriseApi.substring(1, 7);
 
       // const finalRiseMT = convertedMTRise + sunriseSubstrMT;
 
@@ -67,66 +63,73 @@ const Results = ({ apiResult, timeZone }) => {
 
       // const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
 
-      const sunsetSubstrMT = sunsetApi.substring(1,7);
+      const sunsetSubstrMT = sunsetApi.substring(1, 7);
 
       // const finalSetMT = convertedMTSet + sunsetSubstrMT;
 
       // setSunSet(finalSetMT)
 
-    }else if (timeZone === "pacific"){
+    } else if (timeZone === "pacific") {
 
       // const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
 
-      const sunriseSubstrPST = sunriseApi.substring(1,7);
+      const sunriseSubstrPST = sunriseApi.substring(1, 7);
 
       // const finalRisePST = convertedPSTRise + sunriseSubstrPST;
 
       // setRise(finalRisePST)
 
-    
+
 
       // const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
 
-      const sunsetSubstrPST = sunsetApi.substring(1,7);
+      const sunsetSubstrPST = sunsetApi.substring(1, 7);
 
       // const finalSetPST = convertedPSTSet + sunsetSubstrPST;
 
       // setSunSet(finalSetPST)
     }
-},[apiResult]) 
+  }, [apiResult])
 
 
-// const newTime = moment(rise, 'HH:mm:ss').subtract(20, 'minutes');
-// console.log(newTime);
+  const duration = moment.duration({ hours: 0, minutes: 20, seconds: 0 })
+  const suggestedTime = moment(rise, 'HH:mm').subtract(duration).format('HH:mm');
 
-// console.log(newTime._d)
+  console.log(suggestedTime)
 
 
-const duration = moment.duration({hours: 0, minutes: 20, seconds: 0})
-const suggestedTime = moment(rise, 'HH:mm').subtract(duration).format('HH:mm');
 
-console.log(suggestedTime)
 
   return (
     <main>
-  
-    <div>
-      <p>{rise}</p>
-      {
-        rise
-        ?<ContainerForm />
-        :''        
-      }
+      <form>
 
-    
-    </div>
+        <div>
+          <p>{rise}</p>
+          {
+            rise
+              ? <SunriseForm />
+              : ''
+          }
 
 
 
+        </div>
 
-    <div className = "sunSetContainer">
-      <p>{sunSet}</p>
-    </div>
+
+
+
+        <div className="sunSetContainer">
+          <p>{sunSet}</p>
+          {
+            sunSet
+              ? <SunsetForm />
+              : ''
+          }
+
+        </div>
+      </form>
+
 
 
     </main>

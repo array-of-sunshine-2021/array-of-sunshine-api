@@ -3,15 +3,7 @@ import { useState } from 'react';
 
 
 const Form = (props) => {
-    const [sunSet, setSunSet] = useState('false');
     
-    const handleToggle = () => {
-        setSunSet(!sunSet)
-    }
-
-    const handleToggleSunrise = () => {
-        setSunSet('false')
-    }
 
     return (
         <form action="" className="wrapper">
@@ -20,7 +12,7 @@ const Form = (props) => {
 
             <label htmlFor="timeZonesInput">Pick your timezone:</label>
             <select name="timeZonesInput" id="timeZonesInput" className="timeZoneInput" onChange ={props.timeZone} >
-                <option value="placeholder" selected disabled>Choose One:</option>
+                <option value="placeholder" disabled selected>Choose One:</option>
                 <option value="eastern">Eastern</option>
                 <option value="central">Central</option>
                 <option value="pacific">Pacific</option>
