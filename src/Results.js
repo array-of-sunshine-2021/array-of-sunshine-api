@@ -95,12 +95,11 @@ const Results = ({ apiResult, timeZone }) => {
 
 // console.log(newTime._d)
 
-var realTime = rise;
-var duration = moment.duration({hours: 0, minutes: 20})
-var sub = moment(realTime, 'HH:mm').subtract(duration).format('HH:mm:ss');
 
+const duration = moment.duration({hours: 0, minutes: 20, seconds: 0})
+const suggestedTime = moment(rise, 'HH:mm').subtract(duration).format('HH:mm');
 
-console.log(sub)
+console.log(suggestedTime)
 
   return (
     <main>
