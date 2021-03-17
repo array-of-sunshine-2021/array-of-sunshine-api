@@ -1,9 +1,10 @@
 // SunriseForm.js
 import RunDuration from './RunDuration'
+import SunriseRun from './SunriseRun'
 
 import { useState } from 'react'
 
-const SunriseForm = () => {
+const SunriseForm = (prop) => {
 
     const [userSelect, setUserSelect] = useState('')
 
@@ -12,6 +13,8 @@ const SunriseForm = () => {
         setUserSelect(radioChoiceSunrise)
     }
 
+
+
     return (
         <div>
             <label htmlFor="sunInput">Run and watch the sunrise</label>
@@ -19,7 +22,9 @@ const SunriseForm = () => {
 
             {
                 userSelect
-                ? <RunDuration/>
+                ? <RunDuration
+                riseTime={prop.riseTime}
+                />
                 : ''
             }
 
