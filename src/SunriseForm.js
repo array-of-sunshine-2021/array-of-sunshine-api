@@ -1,6 +1,6 @@
 // SunriseForm.js
-import RunDuration from './RunDuration'
-import SunriseRun from './SunriseRun'
+import SunRiseRunDuration from './SunRiseRunDuration'
+// import SunriseRun from './SunriseRun'
 
 import { useState } from 'react'
 
@@ -22,7 +22,7 @@ const SunriseForm = (prop) => {
 
             {
                 userSelect
-                ? <RunDuration
+                ? <SunRiseRunDuration
                 riseTime={prop.riseTime}
                 />
                 : ''

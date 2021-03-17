@@ -1,9 +1,10 @@
-//ContainerForm.js
+//SunsetForm.js
 
-import RunDuration from './RunDuration'
+import SunsetRunDuration from './SunSetRunDuration'
+
 import { useState } from 'react'
 
-const SunsetForm = () => {
+const SunsetForm = (prop) => {
 
      const [userSelect, setUserSelect] = useState('')
 
@@ -19,7 +20,8 @@ const SunsetForm = () => {
                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange={handleChange}/>
                {
                     userSelect
-                    ?<RunDuration/>
+                    ?<SunsetRunDuration
+                    sunSetTime= {prop.sunSetTime}/>
                     : ''
                }
                
