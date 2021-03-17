@@ -76,12 +76,16 @@ form {
     font-size: 1.5rem;
     padding: 0.7rem 0.5rem 0.7rem 0.5rem;
     font-weight: 700;
+    border-radius: 5px;
+    border: 2px solid $red-color
   }
   .timeZoneInput {
     color: #797474;
     padding: 0.7rem 0.5rem 0.7rem 0.5rem;
     outline: none;
     font-weight: 700;
+    border-radius: 5px;
+    border: 2px solid $red-color
   }
 
   textarea:focus,

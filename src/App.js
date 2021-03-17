@@ -91,6 +91,7 @@ function App() {
       
       />
       <Results
+      className="results"
        apiResult = {result}
        timeZone = {userChoiceTimeZone}
      
