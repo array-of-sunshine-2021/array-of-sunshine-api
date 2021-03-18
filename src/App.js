@@ -87,7 +87,7 @@ function App() {
     <div className="App">
       <header>
         <h1>
-          SUN RUN <FontAwesomeIcon icon={faRunning} />
+          {/* SUN RUN <FontAwesomeIcon icon={faRunning} /> */}
         </h1>
       </header>
 
