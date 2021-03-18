@@ -106,11 +106,9 @@ function App() {
         apiResult={result}
         timeZone={userChoiceTimeZone}
       />
-      <footer>
-        <div class="footer">
+      <footer className ="footer">
             <p>Created at <a href="https://www.junocollege.com">Juno College</a></p>
-        </div>
-    </footer>
+      </footer>
     </div>
   );
 }
