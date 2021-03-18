@@ -19,19 +19,30 @@ const SunsetRunDuration = (prop) => {
     }
 
     //create a drop down menu for the user to select how long they intend their run to be
-    return(
-        <div className ="sunSetDurationContainer">
-            <label htmlFor="runLength">How long is your run?</label>
-            <select name="runLength" id="runLength" onChange={handleChange}>
-                <option value="placeholder" defaultValue>Choose One:</option>
-                <option value="15">15 min</option>
-                <option value="30">30 min</option>
-                <option value="60">60 min</option>
-                <option value="90">90 min</option>
-            </select>
-            <p>{runSetDuration}</p>
-        </div>
-    )
+    return (
+      <div className="sunSetDurationContainer">
+        <label htmlFor="runLength">How long is your run?</label>
+        <select name="runLength" id="runLength" onChange={handleChange}>
+          <option value="placeholder" defaultValue>
+            Choose One:
+          </option>
+          <option value="15">15 min</option>
+          <option value="30">30 min</option>
+          <option value="60">60 min</option>
+          <option value="90">90 min</option>
+        </select>
+
+        {runSetDuration ? (
+          <p className="runStart">
+            Start your run at <br />
+            <span>{runSetDuration}</span>
+            <br /> to get home before it gets dark
+          </p>
+        ) : (
+          ""
+        )}
+      </div>
+    );
 }
 
 export default SunsetRunDuration
