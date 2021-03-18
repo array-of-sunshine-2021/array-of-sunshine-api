@@ -1,5 +1,7 @@
 import "./styles/App.scss";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRunning } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
 import Form from "./Form";
 import Results from "./Results.js"
@@ -85,7 +87,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>
+        <h1
+          className="wrapper">
           SUN RUN <FontAwesomeIcon icon={faRunning} />
         </h1>
       </header>
