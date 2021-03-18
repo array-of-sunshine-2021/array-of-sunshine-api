@@ -1,6 +1,6 @@
 import "./styles/App.scss";
 import axios from "axios";
-import { useState , useEffect } from "react";
+import { useState } from "react";
 import Form from "./Form";
 import Results from "./Results.js"
 
@@ -12,9 +12,8 @@ function App() {
   const [longitude, setLongitude] = useState('');
   const [result , setResult] = useState([]);
   const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('');
-  // const [rise, setRise] = useState('')
-  // const [sunSet, setSunSet] = useState('')
 
+  //create an array of timezone objects in order to push lat and lng into the params of the API
   const timeZoneCoordinates = [
     {
         timezone: 'America/Toronto',
@@ -39,14 +38,15 @@ function App() {
     }
   ]
 
+  //handle the date input from the form
   const handleDateInput = (event) => {
     const date = event.target.value;
     setDateInput(date);
   };
 
+  //handle the timezone select from the form and make it correspond to the array of timezone objects
   const handleTimeZone = (event) => {
     const timeZoneSelected = event.target.value
-
     setUserChoiceTimeZone(timeZoneSelected)
 
     const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
@@ -61,6 +61,7 @@ function App() {
   }
 
 
+  //on the submit of the form, run the API call
   const handleSubmit = (event) => {
     event.preventDefault();
     axios({
@@ -75,15 +76,15 @@ function App() {
     }).then((response) => {
       const responseObj= response.data.results;
       setResult(responseObj)
-    
+    }).catch(() => {
+      alert(`Oh no, looks like you forgot to enter the DATE & your TIMEZONE. PLease make sure to enter both!`)
     })
   };
-    
 
+  //add the Form component (to be viewed on page load) & appened the results to the page after the form is submitted
   return (
     <div className="App">
       <h1>SUN RUN</h1>
-      <h2>hello, testing</h2>
 
       <Form
       submit={handleSubmit}
@@ -91,20 +92,13 @@ function App() {
       dateChange={handleDateInput}
       timeZone = {handleTimeZone}
       />
-      
-         
+
       <Results
       apiResult = {result}
       timeZone = {userChoiceTimeZone}
-      // rise = {rise}
-      // sunset = {sunSet}
       /> 
-      
-    
 
-      
     </div>
-
   );
 }
 
