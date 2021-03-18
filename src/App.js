@@ -61,11 +61,7 @@ function App() {
     setLongitude(longitude)
   }
 
-<<<<<<< Updated upstream
-//call the API on the form submit
-=======
   //on the submit of the form, run the API call
->>>>>>> Stashed changes
   const handleSubmit = (event) => {
     event.preventDefault();
     axios({
