@@ -29,7 +29,7 @@ const SunsetRunDuration = (prop) => {
                 <option value="60">60 min</option>
                 <option value="90">90 min</option>
             </select>
-            <p>{runSetDuration}</p>
+            <p>{`If you want to be home before dark be sure to leave at ${runSetDuration}!`}</p>
         </div>
     )
 }

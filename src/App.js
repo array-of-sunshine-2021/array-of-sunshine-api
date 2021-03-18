@@ -83,7 +83,7 @@ function App() {
 
   //add the Form component (to be viewed on page load) & appened the results to the page after the form is submitted
   return (
-    <div className="App">
+    <div className="App wrapper">
       <h1>SUN RUN</h1>
 
       <Form
