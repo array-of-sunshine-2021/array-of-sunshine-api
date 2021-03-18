@@ -1,51 +1,118 @@
 // App.scss
 
-@import 'setup';
+@import "setup";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 // GENERAL STYLES
 
-body{
-    background-color: $yellow-color;
-    font-family: $base-font;
-    font-weight: 400;
-    font-size: 1.6rem;
-    color: $red-color;
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
 }
 
-button{
-    border: none;
-    border-radius: 5px;
-    background-color: $green-color;
-    padding: .5rem 2rem;
-    margin-top: 2rem;
+body {
+  // background-color: $yellow-color;
+  font-family: $base-font;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #333333;
+  // background-color: $green-color;
+  background-color: $yellow-color;
+  // color:$red-color;
 }
 
-.wrapper{
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+header {
+  background-color: $red-color;
+  color: $yellow-color;
+  height: 10vh;
+  text-align: center;
+
+  h1 {
+    padding-top: 30px;
+    font-size: 3rem;
+    margin-top: 0;
+  }
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: $red-color;
+  padding: 8px 20px;
+  margin-top: 2rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 // FORM STYLES
 
-form{
-    text-align: center;
-    padding-top: 5rem;
-    p{
-        margin-bottom: 0;
-    }
-    label{
-        margin:1rem;
-    }
+form {
+  // text-align: center;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  label {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.7rem;
+  }
+
+  input {
+    margin-bottom: 10rem;
+  }
+
+  .dateInput {
+    color: #797474;
+    font-size: 1.5rem;
+    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 1px solid #eeeeee;
+  }
+  .timeZoneInput {
+    color: #797474;
+    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+    outline: none;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 1px solid #eeeeee;
+  }
+
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
 }
 
-.noForm{
-
-    display: none;
+.runDuration {
+  margin: 2rem;
+  display: none;
 }
 
-.Form{
+.runDurationVisible {
+  margin: 2rem;
+  display: block;
+}
 
+
+@media (min-width: 500px) {
+  form {
+    display: grid;
+    gap: 10px 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  button {
+    width: 100%;
     display: block;
+  }
 }
