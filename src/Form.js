@@ -1,17 +1,21 @@
 // Form.js - the initial form for the user to select the date for their run and their timezone
+import moment from 'moment'
+
+
 
 const Form = (props) => {
-
+    const m = moment()
+    console.log(m)
     return (
         //create a form that allows the user to select the date they plan on taking a run and what timezone they are in
-        <form action="" className="wrapper" >
-            <label htmlFor="dateInput">What day will you go for a run?</label>
+        <form action="" className="wrapper" required >
+            <label htmlFor="dateInput" required>What day will you go for a run?</label>
             <input 
             type="date" id="dateInput" 
             className="dateInput" 
             value={props.dateInput} 
             onChange={props.dateChange}
-            required />
+            />
 
             <label htmlFor="timeZonesInput">Pick your timezone:</label>
             <select 
