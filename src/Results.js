@@ -1,114 +1,93 @@
 import { useState, useEffect } from 'react'
 import SunsetForm from './SunsetForm'
 import SunriseForm from './SunriseForm'
+import moment from 'moment'
+import 'moment-timezone'
 
 
 
-const Results = ({ apiResult, timeZone }) => {
+const Results = ({ apiResult , timeZone}) => {
+  
+  console.log(apiResult)
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
+  // setRise(sunriseApi)
+  // setSunSet(sunsetApi)
 
-  const [rise, setRise] = useState('')
-  const [sunSet, setSunSet] = useState('')
-  
-  
-  useEffect(() => {
+  const [timeZoneSelected , setTimeZoneSelected] =useState('')
 
-    if (timeZone === "eastern") {
-      const convertedESTRise = parseInt(sunriseApi) - 4;
-
-      const sunriseSubstrEst = sunriseApi.substring(2);
-
-      const finalRiseEST = convertedESTRise + sunriseSubstrEst;
-
-      setRise(finalRiseEST)
-
-      const convertedESTSet = parseInt(sunsetApi) - 4;
-
-      const sunsetSubstrEst = sunsetApi.substring(2);
-
-      const finalSetEST = convertedESTSet + sunsetSubstrEst;
-
-      setSunSet(finalSetEST)
-
-    } else if (timeZone === "central") {
-
-      const convertedCTRise = parseInt(sunriseApi) - 5;
-
-      const sunriseSubstrCT = sunriseApi.substring(2, 8)
-
-      const finalRiseCT = convertedCTRise + sunriseSubstrCT;
-
-      setRise(finalRiseCT)
-
-      const convertedCTSet = parseInt(sunsetApi) - 5;
-
-      const sunsetSubstrCT = sunsetApi.substring(2, 8);
-
-      const finalSetCT = convertedCTSet + sunsetSubstrCT;
-
-      setSunSet(finalSetCT)
-
-    } else if (timeZone === "mountain") {
-
-      const convertedMTRise = (parseInt(sunriseApi) + 12) - 6;
-
-      const sunriseSubstrMT = sunriseApi.substring(1, 7);
-
-      const finalRiseMT = convertedMTRise + sunriseSubstrMT;
-
-      setRise(finalRiseMT)
-
-      const convertedMTSet = (parseInt(sunsetApi) + 12) - 6;
-
-      const sunsetSubstrMT = sunsetApi.substring(1, 7);
-
-      const finalSetMT = convertedMTSet + sunsetSubstrMT;
-
-      setSunSet(finalSetMT)
-
-    } else if (timeZone === "pacific") {
-
-      const convertedPSTRise = (parseInt(sunriseApi) + 12) - 7;
-
-      const sunriseSubstrPST = sunriseApi.substring(1, 7);
-
-      const finalRisePST = convertedPSTRise + sunriseSubstrPST;
-
-      setRise(finalRisePST)
-
-      const convertedPSTSet = (parseInt(sunsetApi) + 12) - 7;
-
-      const sunsetSubstrPST = sunsetApi.substring(1, 7);
-
-      const finalSetPST = convertedPSTSet + sunsetSubstrPST;
-
-      setSunSet(finalSetPST)
-    }
-
-  }, [apiResult, sunriseApi, sunsetApi ])
+  const [sunsetTimeZonSelected, setSunsetTimeZoneSlected] = useState('')
 
 
-  return (
+    useEffect(() => {
+
+      if(timeZone === "America/Toronto"){
+        const sunRiseTime = moment(`${sunriseApi}`);
+        const finalSunRiseTime = sunRiseTime.tz("America/Toronto").format('HH:mm:ss A')
+        setTimeZoneSelected(finalSunRiseTime)
+
+        const sunSetTime = moment(`${sunsetApi}`)
+        const finalSunSetTime = sunSetTime.tz("America/Toronto").format('HH:mm:ss A')
+
+        setSunsetTimeZoneSlected(finalSunSetTime)
+
+
+
+      }else if(timeZone === "America/Rainy_River"){
+
+        const sunRiseTime = moment(`${sunriseApi}`);
+        const finalSunRiseTime = sunRiseTime.tz("America/Rainy_River").format('HH:mm:ss A')
+        setTimeZoneSelected(finalSunRiseTime)
+
+        const sunSetTime = moment(`${sunsetApi}`)
+        const finalSunSetTime = sunSetTime.tz("America/Rainy_River").format('HH:mm:ss A')
+        setSunsetTimeZoneSlected(finalSunSetTime)
+
+      }else if(timeZone === "America/Denver"){
+
+        const sunRiseTime = moment(`${sunriseApi}`);
+        const finalSunRiseTime = sunRiseTime.tz("America/Denver").format('HH:mm:ss A')
+        setTimeZoneSelected(finalSunRiseTime)
+
+        const sunSetTime = moment(`${sunsetApi}`)
+        const finalSunSetTime = sunSetTime.tz("America/Denver").format('HH:mm:ss A')
+        setSunsetTimeZoneSlected(finalSunSetTime)
+
+      }else if(timeZone === "America/Vancouver"){
+
+        const sunRiseTime = moment(`${sunriseApi}`);
+        const finalSunRiseTime = sunRiseTime.tz("America/Vancouver").format('HH:mm:ss A')
+        setTimeZoneSelected(finalSunRiseTime)
+        
+        const sunSetTime = moment(`${sunsetApi}`)
+        const finalSunSetTime = sunSetTime.tz("America/Vancouver").format('HH:mm:ss A')
+        setSunsetTimeZoneSlected(finalSunSetTime)
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[apiResult])
+
+
+
+    return (
     <main>
       <form>
-
         <div>
-          <p>{rise}</p>
+          <p>{timeZoneSelected}</p>
           {
-            rise
+            timeZoneSelected
               ? <SunriseForm
-              riseTime = {rise}
+              riseTime = {timeZoneSelected}
               />
               : ''
           }
         </div>
 
         <div className="sunSetContainer">
-          <p>{sunSet}</p>
+          <p>{sunsetTimeZonSelected}</p>
           {
-            sunSet
-              ? <SunsetForm />
+            sunsetTimeZonSelected
+              ? <SunsetForm 
+              sunSetTime = {sunsetTimeZonSelected}/>
               : ''
           }
         </div>
