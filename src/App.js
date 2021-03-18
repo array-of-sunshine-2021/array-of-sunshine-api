@@ -1,11 +1,12 @@
 import "./styles/App.scss";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRunning } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
 import Form from "./Form";
 import Results from "./Results.js";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRunning } from "@fortawesome/free-solid-svg-icons";
+
 
 function App() {
   //define state for the form inputs
@@ -93,18 +94,11 @@ function App() {
       </header>
 
       <Form
+      
         submit={handleSubmit}
         date={dateInput}
         dateChange={handleDateInput}
         timeZone={handleTimeZone}
-      />
-
-      <Results
-        className="wrapper"
-        apiResult={result}
-        timeZone={userChoiceTimeZone}
-        // rise = {rise}
-        // sunset = {sunSet}
       />
 
       <Results
