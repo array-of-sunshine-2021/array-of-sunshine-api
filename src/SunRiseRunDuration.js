@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import moment from 'moment'
 
+
 const SunRiseRunDuration = (prop) => {
     const [runDuration, setRunDuration] = useState('');
 
@@ -21,7 +22,7 @@ const SunRiseRunDuration = (prop) => {
 
     //create a drop down menu for the user to select how long they intend their run to be
     return (
-        <div>
+        <div className = "sunRiseDurationContainer">
             <label htmlFor="runLength">How long is your run?</label>
             <select name="runLength" id="runLength" onChange={handleChange}>
                 <option value="placeholder" defaultValue>Choose One:</option>

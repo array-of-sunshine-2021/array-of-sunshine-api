@@ -1,6 +1,5 @@
 // Form.js - the initial form for the user to select the date for their run and their timezone
 
-
 const Form = (props) => {
     
     return (

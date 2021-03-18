@@ -15,10 +15,24 @@
     .sunRiseContainer {
     background-color: $green-color;
     padding: 1.5rem;
+    text-align: center;
+    border-radius: 20px;
+
+    img{
+        border-bottom: black 2px solid; 
+    }
+
 }
 
     .sunInput {
         text-align: center;
+    }
+
+    .sunRiseDurationContainer,
+    .sunSetDurationContainer {
+        select {
+            margin: 1rem 0rem 
+        }
     }
 }
 
