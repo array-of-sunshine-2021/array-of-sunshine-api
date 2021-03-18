@@ -95,7 +95,6 @@ function App() {
       </header>
 
       <Form
-      
         submit={handleSubmit}
         date={dateInput}
         dateChange={handleDateInput}
