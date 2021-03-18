@@ -1,6 +1,6 @@
 import "./styles/App.scss";
 import axios from "axios";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import Form from "./Form";
 import Results from "./Results.js";
 
@@ -9,37 +9,36 @@ import { faRunning } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   //define state for the form inputs
-  const [dateInput, setDateInput] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [result , setResult] = useState([]);
-  const [userChoiceTimeZone , setUserChoiceTimeZone] = useState('');
+  const [dateInput, setDateInput] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [result, setResult] = useState([]);
+  const [userChoiceTimeZone, setUserChoiceTimeZone] = useState("");
   // const [rise, setRise] = useState('')
   // const [sunSet, setSunSet] = useState('')
 
   const timeZoneCoordinates = [
     {
-        timezone: 'America/Toronto',
-        lat: 43.6532,
-        lng: -79.3832,
-        
-      },
-    {
-        timezone: 'America/Rainy_River',
-        lat: 29.7604,
-        lng: -95.3698,
-      },
-    {
-      timezone: 'America/Vancouver',
-      lat:  37.7749,
-      lng:  -122.4194,
+      timezone: "America/Toronto",
+      lat: 43.6532,
+      lng: -79.3832,
     },
     {
-      timezone: 'America/Denver',
-      lat:  33.4484,
-      lng:  -112.0740,
-    }
-  ]
+      timezone: "America/Rainy_River",
+      lat: 29.7604,
+      lng: -95.3698,
+    },
+    {
+      timezone: "America/Vancouver",
+      lat: 37.7749,
+      lng: -122.4194,
+    },
+    {
+      timezone: "America/Denver",
+      lat: 33.4484,
+      lng: -112.074,
+    },
+  ];
 
   const handleDateInput = (event) => {
     const date = event.target.value;
@@ -71,37 +70,35 @@ function App() {
         lat: `${latitude}`,
         lng: `${longitude}`,
         date: `${dateInput}`,
-        formatted: 0, 
+        formatted: 0,
       },
     }).then((response) => {
-      const responseObj= response.data.results;
-      setResult(responseObj)
-    
-    })
+      const responseObj = response.data.results;
+      setResult(responseObj);
+    });
   };
-    
 
   return (
     <div className="App">
-      <h1>SUN RUN</h1>
-      <h2>hello, testing</h2>
+      <header>
+        <h1>
+          SUN RUN <FontAwesomeIcon icon={faRunning} />
+        </h1>
+      </header>
 
       <Form
-      submit={handleSubmit}
-      date= {dateInput}
-      dateChange={handleDateInput}
-      timeZone = {handleTimeZone}
+        submit={handleSubmit}
+        date={dateInput}
+        dateChange={handleDateInput}
+        timeZone={handleTimeZone}
       />
-      
-         
+
       <Results
-      apiResult = {result}
-      timeZone = {userChoiceTimeZone}
-      // rise = {rise}
-      // sunset = {sunSet}
-      /> 
-      
-    
+        apiResult={result}
+        timeZone={userChoiceTimeZone}
+        // rise = {rise}
+        // sunset = {sunSet}
+      />
 
       <Results apiResult={result} timeZone={userChoiceTimeZone} />
     </div>
