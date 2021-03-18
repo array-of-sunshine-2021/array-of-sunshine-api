@@ -1,13 +1,22 @@
 // // MEDIA QUERIES
 
+@media (max-width: 900px) {
+  .headingForm {
+    max-width: 90%;
+  }
+
+  main {
+       height: 80vh;
+  }
+}
+
 @media (max-width: 550px) {
+  main {
+    height: 80vh;
 
-     .resultsContainer{
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
-     }
-
-     main {
-          height: 80vh;
-     }
+    .resultsContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
 }
