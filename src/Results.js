@@ -64,8 +64,7 @@ const Results = ({ apiResult , timeZone}) => {
   //after the initial form is submitted, display the sunrise and sunset times 
   //put the sunset and sunrise in a new form so that the user can choose the time of day they want to go for a run
     return (
-    <main>
-
+    <main className="wrapper">
       <form>
         <div className="sunRiseContainer">
           <p>{timeZoneSelected}</p>

@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRunning } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
 import Form from "./Form";
-import Results from "./Results.js"
+import Results from "./Results.js";
+
 
 
 function App() {
@@ -18,27 +19,26 @@ function App() {
   //create an array of timezone objects in order to push lat and lng into the params of the API
   const timeZoneCoordinates = [
     {
-        timezone: 'America/Toronto',
-        lat: 43.6532,
-        lng: -79.3832,
-        
-      },
-    {
-        timezone: 'America/Rainy_River',
-        lat: 29.7604,
-        lng: -95.3698,
-      },
-    {
-      timezone: 'America/Vancouver',
-      lat:  37.7749,
-      lng:  -122.4194,
+      timezone: "America/Toronto",
+      lat: 43.6532,
+      lng: -79.3832,
     },
     {
-      timezone: 'America/Denver',
-      lat:  33.4484,
-      lng:  -112.0740,
-    }
-  ]
+      timezone: "America/Rainy_River",
+      lat: 29.7604,
+      lng: -95.3698,
+    },
+    {
+      timezone: "America/Vancouver",
+      lat: 37.7749,
+      lng: -122.4194,
+    },
+    {
+      timezone: "America/Denver",
+      lat: 33.4484,
+      lng: -112.074,
+    },
+  ];
 
   //handle the date input from the form
   const handleDateInput = (event) => {
@@ -51,17 +51,18 @@ function App() {
     const timeZoneSelected = event.target.value
     setUserChoiceTimeZone(timeZoneSelected)
 
-    const timeZoneUserChoice = timeZoneCoordinates.filter((timeZoneCoordinate) => {
-      return(
-        timeZoneSelected === timeZoneCoordinate.timezone
-      )
-    })
-    const latitude = timeZoneUserChoice[0].lat
-    const longitude= timeZoneUserChoice[0].lng
-    setLatitude(latitude)
-    setLongitude(longitude)
-  }
+    setUserChoiceTimeZone(timeZoneSelected);
 
+    const timeZoneUserChoice = timeZoneCoordinates.filter(
+      (timeZoneCoordinate) => {
+        return timeZoneSelected === timeZoneCoordinate.timezone;
+      }
+    );
+    const latitude = timeZoneUserChoice[0].lat;
+    const longitude = timeZoneUserChoice[0].lng;
+    setLatitude(latitude);
+    setLongitude(longitude);
+  };
 
   //on the submit of the form, run the API call
   const handleSubmit = (event) => {
@@ -73,7 +74,7 @@ function App() {
         lat: `${latitude}`,
         lng: `${longitude}`,
         date: `${dateInput}`,
-        formatted: 0, 
+        formatted: 0,
       },
     }).then((response) => {
       const responseObj= response.data.results;
@@ -87,13 +88,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1
-          className="wrapper">
+        <h1>
           SUN RUN <FontAwesomeIcon icon={faRunning} />
         </h1>
       </header>
 
       <Form
+      
         submit={handleSubmit}
         date={dateInput}
         dateChange={handleDateInput}
@@ -110,4 +111,3 @@ function App() {
 }
 
 export default App;
-
