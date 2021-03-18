@@ -38,7 +38,7 @@ const SunRiseRunDuration = (prop) => {
         <option value="90">90 min</option>
       </select>
       {runDuration ? (
-        <p class="runStart">
+        <p className="runStart">
           Start your run at <br /><span>{runDuration}</span><br /> to see the sunrise
         </p>
       ) : (

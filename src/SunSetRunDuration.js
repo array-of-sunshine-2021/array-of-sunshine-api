@@ -33,7 +33,7 @@ const SunsetRunDuration = (prop) => {
         </select>
 
         {runSetDuration ? (
-          <p class="runStart">
+          <p className="runStart">
             Start your run at <br />
             <span>{runSetDuration}</span>
             <br /> to get home before it gets dark
