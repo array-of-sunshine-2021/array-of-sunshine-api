@@ -11,6 +11,14 @@
         font-weight: 900;
     }
 
+     .runStart {
+        font-size: 2rem;
+    }
+
+    span {
+        font-size: 3rem;
+    }
+    
     .sunSetContainer,
     .sunRiseContainer {
     background-color: $green-color;
@@ -19,6 +27,8 @@
     text-align: center;
     border-radius: 20px;
     position: relative;
+
+  
 
     img{
         border-bottom: black 2px solid; 

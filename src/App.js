@@ -44,7 +44,6 @@ function App() {
   const handleDateInput = (event) => {
     const date = event.target.value;
     setDateInput(date);
-    console.log(date)
   };
 
   //handle the timezone select from the form and make it correspond to the array of timezone objects

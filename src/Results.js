@@ -9,7 +9,6 @@ import 'moment-timezone'
 
 const Results = ({ apiResult , timeZone}) => {
   
-  console.log(apiResult)
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
   const [timeZoneSelected , setTimeZoneSelected] =useState('')
