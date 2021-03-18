@@ -1,24 +1,21 @@
+//Results.js - takes the API time (UTC) time and converts it to the user's selected timezone and displays it after the submit of the form
+
 import { useState, useEffect } from 'react'
 import SunsetForm from './SunsetForm'
 import SunriseForm from './SunriseForm'
 import moment from 'moment'
 import 'moment-timezone'
 
-
-
 const Results = ({ apiResult , timeZone}) => {
   
   console.log(apiResult)
   const sunriseApi = apiResult.sunrise;
   const sunsetApi = apiResult.sunset;
-  // setRise(sunriseApi)
-  // setSunSet(sunsetApi)
-
   const [timeZoneSelected , setTimeZoneSelected] =useState('')
-
   const [sunsetTimeZonSelected, setSunsetTimeZoneSlected] = useState('')
 
-
+  //useEffect will make sure the API is only called once when the inital form is submitted
+  //change the API time result from UTC time to the user's selected timezone through an If statement by using moment() for both runrise and sunset times
     useEffect(() => {
 
       if(timeZone === "America/Toronto"){
@@ -28,10 +25,7 @@ const Results = ({ apiResult , timeZone}) => {
 
         const sunSetTime = moment(`${sunsetApi}`)
         const finalSunSetTime = sunSetTime.tz("America/Toronto").format('HH:mm:ss A')
-
         setSunsetTimeZoneSlected(finalSunSetTime)
-
-
 
       }else if(timeZone === "America/Rainy_River"){
 
@@ -67,11 +61,12 @@ const Results = ({ apiResult , timeZone}) => {
     },[apiResult])
 
 
-
+  //after the initial form is submitted, display the sunrise and sunset times 
+  //put the sunset and sunrise in a new form so that the user can choose the time of day they want to go for a run
     return (
     <main className="wrapper">
       <form>
-        <div>
+        <div className="sunRiseContainer">
           <p>{timeZoneSelected}</p>
           {
             timeZoneSelected

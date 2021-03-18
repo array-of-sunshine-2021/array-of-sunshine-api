@@ -102,3 +102,17 @@ form {
   margin: 2rem;
   display: block;
 }
+
+
+@media (min-width: 500px) {
+  form {
+    display: grid;
+    gap: 10px 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  button {
+    width: 100%;
+    display: block;
+  }
+}
