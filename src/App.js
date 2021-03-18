@@ -85,20 +85,24 @@ function App() {
   //add the Form component (to be viewed on page load) & appened the results to the page after the form is submitted
   return (
     <div className="App">
-      <h1>SUN RUN</h1>
+      <header>
+        <h1>
+          SUN RUN <FontAwesomeIcon icon={faRunning} />
+        </h1>
+      </header>
 
       <Form
-      submit={handleSubmit}
-      date= {dateInput}
-      dateChange={handleDateInput}
-      timeZone = {handleTimeZone}
+        submit={handleSubmit}
+        date={dateInput}
+        dateChange={handleDateInput}
+        timeZone={handleTimeZone}
       />
 
       <Results
-      apiResult = {result}
-      timeZone = {userChoiceTimeZone}
-      /> 
-
+        className="wrapper"
+        apiResult={result}
+        timeZone={userChoiceTimeZone}
+      />
     </div>
   );
 }
