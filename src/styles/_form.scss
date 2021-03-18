@@ -1,7 +1,8 @@
 // FORM STYLES
 
+
 form {
-    padding: 4rem 2rem 0 2rem;
+    padding: 2rem 2rem 0 2rem;
     display: flex;
     flex-direction: column;
 
@@ -12,14 +13,14 @@ form {
     }
 
     input {
-        margin-bottom: 5rem;
+        margin-bottom: 1rem;
     }
 
     .dateInput, 
     .timeZoneInput {
         color: #797474;
         font-size: 1.5rem;
-        padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+        padding: 0.7rem 0.5rem;
         font-weight: 700;
         border-radius: 5px;
         border: 1px solid #eeeeee;
@@ -36,6 +37,19 @@ form {
 
 .headingForm {
     max-width: 50%;
+
 }
+
+// select{
+//     -moz-appearance: none;
+//     -ms-appearance: none;
+//     -webkit-appearance: none;
+//     border: 1px solid #333333;
+//     border-radius: 5px;
+//     background: url("./assets/nounArrow.png");
+//     background-repeat: no-repeat;
+//     background-position: right 2.5rem top 1.5rem;
+//     background-size: 7%;
+// }
 
 

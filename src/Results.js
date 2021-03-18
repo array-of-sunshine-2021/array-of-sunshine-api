@@ -7,7 +7,6 @@ import moment from 'moment'
 import 'moment-timezone'
 
 
-
 const Results = ({ apiResult , timeZone}) => {
   
   console.log(apiResult)
