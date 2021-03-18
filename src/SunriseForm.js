@@ -19,7 +19,7 @@ const SunriseForm = (prop) => {
         <div className="sunRiseContainer">
             <p>Sunrise {prop.riseTime}</p>
             <img className="sunriseImage" src={nounSunrise} alt="sunrise icon"/>
-            <label htmlFor="sunInput">Run and watch the sunrise</label>
+            <label htmlFor="sunInput">Run and watch the sunrise </label>
             <input type="radio" name="sunInput" className="sunInput" value="sunrise" onChange= {handleChange}/>
 
         {/* when the user selects the sunrise radio button, prompt the user to select how long they want their run to be */}
