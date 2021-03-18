@@ -1,14 +1,13 @@
 // // MEDIA QUERIES
 
-// @media (min-width: 500px) {
-//     form {
-//         display: grid;
-//         gap: 10px 10px;
-//         grid-template-columns: repeat(2, 1fr);
-//     }
+@media (max-width: 550px) {
 
-//     button {
-//         width: 100%;
-//         display: block;
-//     }
-// }
+     .resultsContainer{
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
+     }
+
+     main {
+          height: 80vh;
+     }
+}
