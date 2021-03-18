@@ -1,0 +1,24 @@
+//Results Container
+
+.resultsContainer {
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    p {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 900;
+    }
+
+    .sunSetContainer,
+    .sunRiseContainer {
+    background-color: $green-color;
+    padding: 1.5rem;
+}
+
+    .sunInput {
+        text-align: center;
+    }
+}
+

@@ -3,6 +3,8 @@
 import SunsetRunDuration from './SunSetRunDuration'
 import { useState } from 'react'
 
+import nounSunset from './assets/nounSunset.png';
+
 const SunsetForm = (prop) => {
      const [userSelect, setUserSelect] = useState('')
 
@@ -14,7 +16,9 @@ const SunsetForm = (prop) => {
 
      //once the sunrise and sunset times are displayed, create a button so the user can choose if they want be back before the sunset
      return(
-          <div>
+          <div className="sunSetContainer">
+               <p>Sunset {prop.sunSetTime}</p>
+               <img className="sunsetImage" src={nounSunset} alt="sunset icon"/>
                <label htmlFor="sunInput">Run and watch the sunset</label>
                <input type="radio" name="sunInput" className="sunInput" value ="sunset" onChange={handleChange}/>
 

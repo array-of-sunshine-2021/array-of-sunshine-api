@@ -6,6 +6,8 @@ import SunriseForm from './SunriseForm'
 import moment from 'moment'
 import 'moment-timezone'
 
+
+
 const Results = ({ apiResult , timeZone}) => {
   
   console.log(apiResult)
@@ -64,31 +66,32 @@ const Results = ({ apiResult , timeZone}) => {
   //after the initial form is submitted, display the sunrise and sunset times 
   //put the sunset and sunrise in a new form so that the user can choose the time of day they want to go for a run
     return (
-    <main className="wrapper">
-      <form>
-        <div className="sunRiseContainer">
-          <p>{timeZoneSelected}</p>
-          {
-            timeZoneSelected
-              ? <SunriseForm
-              riseTime = {timeZoneSelected}
-              />
-              : ''
-          }
-        </div>
+    <div className="wrapper">
+      <main>
+        <form className="resultsContainer">
+          <div>
+            {
+              timeZoneSelected
+                ? <SunriseForm
+                riseTime = {timeZoneSelected}
+                />
+                : ''
+            }
+          </div>
 
-        <div className="sunSetContainer">
-          <p>{sunsetTimeZonSelected}</p>
-          {
-            sunsetTimeZonSelected
-              ? <SunsetForm 
-              sunSetTime = {sunsetTimeZonSelected}/>
-              : ''
-          }
-        </div>
-      </form>
+          <div>
 
-    </main>
+            {
+              sunsetTimeZonSelected
+                ? <SunsetForm 
+                sunSetTime = {sunsetTimeZonSelected}
+                />
+                : ''
+            }
+          </div>
+        </form>
+      </main>
+    </div>
   )
 };
 

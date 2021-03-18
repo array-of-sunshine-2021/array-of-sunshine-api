@@ -1,0 +1,41 @@
+// FORM STYLES
+
+form {
+    padding: 4rem 2rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-bottom: 1rem;
+        font-weight: 700;
+        font-size: 1.7rem;
+    }
+
+    input {
+        margin-bottom: 5rem;
+    }
+
+    .dateInput, 
+    .timeZoneInput {
+        color: #797474;
+        font-size: 1.5rem;
+        padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+        font-weight: 700;
+        border-radius: 5px;
+        border: 1px solid #eeeeee;
+    }
+    .timeZoneInput {
+        outline: none;
+    }
+
+    textarea:focus,
+    input:focus {
+    outline: none;
+    }
+}
+
+.headingForm {
+    max-width: 50%;
+}
+
+
