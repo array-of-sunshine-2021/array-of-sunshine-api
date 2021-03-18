@@ -94,13 +94,18 @@ function App() {
       />
 
       <Results
+        className="wrapper"
         apiResult={result}
         timeZone={userChoiceTimeZone}
         // rise = {rise}
         // sunset = {sunSet}
       />
 
-      <Results apiResult={result} timeZone={userChoiceTimeZone} />
+      <Results
+        className="wrapper"
+        apiResult={result}
+        timeZone={userChoiceTimeZone}
+      />
     </div>
   );
 }

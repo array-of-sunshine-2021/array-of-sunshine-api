@@ -69,7 +69,7 @@ const Results = ({ apiResult , timeZone}) => {
 
 
     return (
-    <main>
+    <main className="wrapper">
       <form>
         <div>
           <p>{timeZoneSelected}</p>
