@@ -2,7 +2,8 @@ import "./styles/App.scss";
 import axios from "axios";
 import { useState } from "react";
 import Form from "./Form";
-import Results from "./Results.js"
+import Results from "./Results.js";
+
 
 
 function App() {
@@ -77,27 +78,31 @@ function App() {
       const responseObj= response.data.results;
       setResult(responseObj)
     }).catch(() => {
-      alert(`Oh no, looks like you forgot to enter the DATE & your TIMEZONE. PLease make sure to enter both!`)
+      alert(`Oh no, looks like you forgot to enter the DATE & your TIMEZONE. Please make sure to enter both!`)
     })
   };
 
   //add the Form component (to be viewed on page load) & appened the results to the page after the form is submitted
   return (
-    <div className="App wrapper">
-      <h1>SUN RUN</h1>
+    <div className="App">
+      <header>
+        <h1>
+          SUN RUN <FontAwesomeIcon icon={faRunning} />
+        </h1>
+      </header>
 
       <Form
-      submit={handleSubmit}
-      date= {dateInput}
-      dateChange={handleDateInput}
-      timeZone = {handleTimeZone}
+        submit={handleSubmit}
+        date={dateInput}
+        dateChange={handleDateInput}
+        timeZone={handleTimeZone}
       />
 
       <Results
-      apiResult = {result}
-      timeZone = {userChoiceTimeZone}
-      /> 
-
+        className="wrapper"
+        apiResult={result}
+        timeZone={userChoiceTimeZone}
+      />
     </div>
   );
 }
